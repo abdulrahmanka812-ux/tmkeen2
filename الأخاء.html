@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <title>بنك تمكين المركزي | المنصة الرقمية</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;700;900&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --navy: #1a365d; /* اللون الكحلي المعتمد */
+            --gold: #c5a059;
+            --white: #ffffff;
+            --text: #2d3748;
+            /* لمسة خاصة: تدرج خلفية ناعم للهوية */
+            --bg-gradient: linear-gradient(135deg, #f8f9fc 0%, #e2e8f0 100%);
+        }
+
+        body { 
+            font-family: 'Tajawal', sans-serif; 
+            background: var(--bg-gradient); /* تطبيق التدرج الخلفي */
+            margin: 0; 
+            color: var(--text); 
+            min-height: 100vh;
+        }
+
+        /* الهيدر باللون الكحلي */
+        header { 
+            background: var(--navy); 
+            padding: 20px 5%; 
+            display: flex; 
+            align-items: center; 
+            justify-content: space-between; 
+            border-bottom: 4px solid var(--gold); 
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2); 
+            position: sticky; top: 0; z-index: 1000; 
+        }
+        
+        /* يرجى التأكد من وجود ملف logo.svg في نفس المجلد */
+        .logo-area img { height: 70px; filter: brightness(0) invert(1); }
+        
+        .nav-links { display: flex; gap: 15px; flex-wrap: wrap; }
+        .nav-links a { 
+            cursor: pointer; 
+            font-weight: 700; 
+            color: white; 
+            padding: 8px 15px; 
+            transition: 0.3s; 
+            border-radius: 5px;
+        }
+        .nav-links a:hover { color: var(--navy); background-color: var(--gold); }
+
+        /* التخطيط */
+        .container { max-width: 1000px; margin: 40px auto; padding: 0 20px; padding-bottom: 40px; }
+        .page { display: none; }
+        .active { display: block; animation: fadeIn 0.5s ease-in-out; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+
+        /* تأثير كاهوت للأوسمة */
+        @keyframes kahootPop {
+            0% { transform: scale(0); opacity: 0; }
+            70% { transform: scale(1.1); }
+            100% { transform: scale(1); opacity: 1; }
+        }
+
+        .podium { display: flex; justify-content: center; align-items: flex-end; gap: 20px; margin-top: 50px; flex-wrap: wrap; }
+        .rank { 
+            background: var(--white); 
+            padding: 25px; 
+            border-radius: 15px; 
+            border-bottom: 5px solid var(--gold); 
+            width: 180px; 
+            text-align: center;
+            opacity: 0; /* للأنيميشن */
+            animation: kahootPop 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+            box-shadow: 0 10px 15px rgba(0,0,0,0.05);
+        }
+        /* تأخير زمني لكل رتبة ليعطي إحساس التتابع */
+        .rank:nth-child(1) { animation-delay: 0.2s; }
+        .rank:nth-child(2) { animation-delay: 0.4s; }
+        .rank:nth-child(3) { animation-delay: 0.6s; }
+
+        /* تنسيقات الشبكة والبطاقات */
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; margin-top: 30px; }
+        .card-btn { 
+            background: var(--white); 
+            padding: 30px; 
+            border-radius: 20px; 
+            text-align: center; 
+            border: 1px solid #e2e8f0; 
+            cursor: pointer; 
+            transition: 0.3s ease; 
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05); 
+        }
+        .card-btn:hover { 
+            border-color: var(--gold); 
+            transform: translateY(-5px); 
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1); 
+        }
+        .card-btn i { color: var(--gold); margin-bottom: 15px; }
+        
+        /* تنسيقات الجدول */
+        table { width: 100%; border-collapse: collapse; background: white; border-radius: 15px; overflow: hidden; box-shadow: 0 4px 6px rgba(0,0,0,0.05); margin-top: 20px; }
+        th { background: var(--navy); color: white; padding: 15px; text-align: center; }
+        td { padding: 15px; border-bottom: 1px solid #edf2f7; text-align: center; }
+        tr:nth-child(even) { background: #f7fafc; }
+        tr:hover td { background-color: #f1f5f9; } /* تأثير تمرير ناعم على الصفوف */
+        .top-student { background-color: #fffbeb !important; border-right: 5px solid var(--gold); font-weight: bold;}
+
+        /* تنسيق صفحة "عن البنك" */
+        .about-content { background: white; padding: 30px; border-radius: 15px; box-shadow: 0 4px 6px rgba(0,0,0,0.05); line-height: 1.8; }
+    </style>
+</head>
+<body>
+
+    <script>
+        // البيانات الثابتة للطلاب
+        const studentData = [
+            { name: "عبد الكريم سليمان الدويش", points: 3250 }, { name: "محمد فيصل الشهراني", points: 3175 },
+            { name: "عبد الرحمن على العريني", points: 2850 }, { name: "يزيد وليد الحمدان", points: 2800 },
+            { name: "عبد الملك هشام السعيد", points: 2800 }, { name: "تميم بدر الجبر", points: 2550 },
+            { name: "عبد الله فيصل السويدي", points: 2500 }, { name: "عبد الله وائل العريني", points: 2500 },
+            { name: "البراء عبد الله العيدان", points: 2300 }, { name: "عبدالله فهد الماجد", points: 2300 },
+            { name: "زياد مازن الجريد", points: 2175 }, { name: "هشام العريني", points: 2150 },
+            { name: "عمر المهيزع", points: 1900 }, { name: "سعد الاحمد", points: 1625 },
+            { name: "عبد الرحمن هشام السعيد", points: 1450 }, { name: "يوسف عبد المجيد الجار الله", points: 1425 },
+            { name: "سلمان عمر الوهيبي", points: 875 }, { name: "انس ياسر الصغير", points: 800 },
+            { name: "سعود متعب الزميع", points: 650 }, { name: "يوسف عبد الله بالبيد", points: 575 },
+            { name: "رواف على السحيباني", points: 450 }
+        ].sort((a, b) => b.points - a.points);
+    </script>
+
+    <header>
+        <div class="logo-area"><img src="logo.svg" alt="تمكين"></div>
+        <div class="nav-links">
+            <a onclick="showPage('home')">الرئيسية</a>
+            <a onclick="showPage('students')">الطلاب</a>
+            <a onclick="showPage('bourse')">البورصة</a>
+            <a onclick="showPage('badges')">الأوسمة</a>
+            <a onclick="showPage('about')">عن البنك</a>
+        </div>
+    </header>
+
+    <div class="container">
+        <div id="home" class="page active">
+            <h2 style="text-align: center; color: var(--navy);">مرحباً بك في مركز قيادة بنك تمكين</h2>
+            <div class="grid">
+                <div class="card-btn" onclick="showPage('students')"><i data-lucide="users" size="40"></i><h3>الطلاب</h3></div>
+                <div class="card-btn" onclick="showPage('bourse')"><i data-lucide="trending-up" size="40"></i><h3>البورصة</h3></div>
+                <div class="card-btn" onclick="showPage('badges')"><i data-lucide="award" size="40"></i><h3>الأوسمة</h3></div>
+                <div class="card-btn" onclick="showPage('about')"><i data-lucide="info" size="40"></i><h3>عن بنك تمكين</h3></div>
+                <div class="card-btn" style="opacity: 0.6; cursor: not-allowed;"><i data-lucide="gift" size="40"></i><h3>الجوائز (قريباً)</h3></div>
+                <div class="card-btn" style="opacity: 0.6; cursor: not-allowed;"><i data-lucide="zap" size="40"></i><h3>النشاط (قريباً)</h3></div>
+            </div>
+        </div>
+
+        <div id="students" class="page">
+            <h2 style="color: var(--navy);">سجل المنتسبين (الترتيب العام)</h2>
+            <table>
+                <thead><tr><th>المركز</th><th>اسم الطالب</th><th>النقاط</th></tr></thead>
+                <tbody id="full-table"></tbody>
+            </table>
+        </div>
+
+        <div id="bourse" class="page">
+            <h2 style="color: var(--navy);">مؤشر البورصة الحي</h2>
+            <div style="background:white; padding:20px; border-radius:15px; box-shadow: 0 4px 6px rgba(0,0,0,0.05);"><canvas id="bourseChart"></canvas></div>
+        </div>
+
+        <div id="badges" class="page">
+            <h2 style="color: var(--navy);">نخبة التميز</h2>
+            <div class="podium" id="podium"></div>
+        </div>
+
+        <div id="about" class="page">
+            <h2 style="color: var(--navy);">عن بنك تمكين المركزي</h2>
+            <div class="about-content">
+                <p>بنك تمكين هو برنامج تحفيزي متميز يهدف إلى توعية الطالب بأهمية جمع النقاط وتنمية مهاراته. يركز البرنامج على تعزيز مفهوم الاستدامة من خلال أنشطة مدروسة ذات أهداف بعيدة المدى.</p>
+                <p>هذا البرنامج ذو طابع تحفيزي بحت، صُمم ليكون رحلة مستمرة نحو التميز والتطوير الشخصي والمهاري للطلاب.</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // تفعيل أيقونات Lucide
+        lucide.createIcons();
+
+        // دالة التنقل بين الصفحات
+        function showPage(id) {
+            document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+            const targetPage = document.getElementById(id);
+            if (targetPage) {
+                targetPage.classList.add('active');
+                // إعادة تشغيل أنيميشن كاهوت عند الدخول لصفحة الأوسمة
+                if (id === 'badges') {
+                    const ranks = targetPage.querySelectorAll('.rank');
+                    ranks.forEach(rank => {
+                        rank.style.animation = 'none';
+                        rank.offsetHeight; /* trigger reflow */
+                        rank.style.animation = null;
+                    });
+                }
+            }
+        }
+
+        // تعبئة جدول الطلاب مع تمييز الثلاثة الأوائل
+        const tbody = document.getElementById('full-table');
+        studentData.forEach((s, i) => {
+            const rowClass = i < 3 ? 'class="top-student"' : '';
+            tbody.innerHTML += `<tr ${rowClass}><td>${i+1}</td><td>${s.name}</td><td style="font-weight:bold; color:var(--navy)">${s.points}</td></tr>`;
+        });
+
+        // تعبئة منصة الأوسمة (الثلاثة الأوائل)
+        const podium = document.getElementById('podium');
+        // الترتيب للعرض: الثاني، الأول، الثالث
+        const displayOrder = [studentData[1], studentData[0], studentData[2]];
+        const medals = ['🥈', '🥇', '🥉'];
+        
+        displayOrder.forEach((s, i) => {
+            if (s) {
+                podium.innerHTML += `<div class="rank">${medals[i]}<h4>${s.name}</h4><p>${s.points} نقطة</p></div>`;
+            }
+        });
+
+        // إعداد رسم البورصة البياني
+        const ctx = document.getElementById('bourseChart').getContext('2d');
+        new Chart(ctx, {
+            type: 'line',
+            data: { 
+                labels: studentData.map(s => s.name.split(' ')[0]), // استخدام الاسم الأول فقط للمحور
+                datasets: [{ 
+                    label: 'النقاط', 
+                    data: studentData.map(s => s.points), 
+                    borderColor: '#c5a059', 
+                    backgroundColor: 'rgba(26, 54, 93, 0.1)', // كحلي شفاف للتعبئة
+                    fill: true,
+                    tension: 0.3 // نعومة الخط
+                }] 
+            },
+            options: {
+                responsive: true,
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        title: { display: true, text: 'النقاط', font: { family: 'Tajawal' } }
+                    },
+                    x: {
+                        title: { display: true, text: 'الطلاب', font: { family: 'Tajawal' } }
+                    }
+                },
+                plugins: {
+                    legend: { labels: { font: { family: 'Tajawal', weight: 'bold' } } }
+                }
+            }
+        });
+    </script>
+</body>
+</html>
