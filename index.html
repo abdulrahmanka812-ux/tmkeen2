@@ -14,23 +14,23 @@
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     :root {
-      --navy:       #0f2447;
-      --navy-mid:   #1a3a6b;
-      --navy-light: #1e4d8c;
-      --gold:       #c9a227;
-      --gold-light: #e8c04a;
-      --gold-pale:  #fdf3d7;
-      --bg:         #f0f4fb;
-      --card-bg:    rgba(255,255,255,0.97);
-      --text-main:  #0f2447;
-      --text-muted: #64748b;
-      --border:     rgba(201,162,39,0.18);
-      --shadow-sm:  0 2px 12px rgba(15,36,71,0.08);
-      --shadow-md:  0 8px 30px rgba(15,36,71,0.14);
-      --shadow-lg:  0 16px 50px rgba(15,36,71,0.18);
-      --radius:     18px;
-      --radius-sm:  10px;
-      --transition: all 0.3s cubic-bezier(0.4,0,0.2,1);
+      --navy:        #0f2447;
+      --navy-mid:    #1a3a6b;
+      --navy-light:  #1e4d8c;
+      --gold:        #c9a227;
+      --gold-light:  #e8c04a;
+      --gold-pale:   #fdf3d7;
+      --bg:          #f0f4fb;
+      --card-bg:     rgba(255,255,255,0.97);
+      --text-main:   #0f2447;
+      --text-muted:  #64748b;
+      --border:      rgba(201,162,39,0.18);
+      --shadow-sm:   0 2px 12px rgba(15,36,71,0.08);
+      --shadow-md:   0 8px 30px rgba(15,36,71,0.14);
+      --shadow-lg:   0 16px 50px rgba(15,36,71,0.18);
+      --radius:      18px;
+      --radius-sm:   10px;
+      --transition:  all 0.3s cubic-bezier(0.4,0,0.2,1);
     }
 
     html { scroll-behavior: smooth; }
@@ -469,7 +469,7 @@
     .podium-card.p-third  { border-top: 4px solid #cd7f32; }
 
     .podium-medal { font-size: 2.8rem; margin-bottom: 0.6rem; line-height: 1; display: block; }
-    .podium-name  { font-size: 0.92rem; font-weight: 700; color: var(--navy); margin-bottom: 0.5rem; line-height: 1.4; }
+    .podium-name  { font-size: 0.92rem; font-weight: 700; color: var(--navy); margin-bottom: 0.5rem; line-height: 1.4; display: block; }
     .podium-pts   { font-size: 1.5rem; font-weight: 900; }
     .p-first .podium-pts  { color: #d97706; }
     .p-second .podium-pts { color: #64748b; }
@@ -842,13 +842,342 @@
 
     <!-- ==================== HOME ==================== -->
     <div class="page active" id="home">
-
       <div class="home-hero">
         <!-- Decorative SVG layer -->
         <div class="hero-svg-decor">
-          <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg"
-               style="position:absolute;top:0;left:0;opacity:0.35;">
+          <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" style="position:absolute;top:0;left:0;opacity:0.35;">
             <defs>
               <pattern id="hexPat" x="0" y="0" width="60" height="52" patternUnits="userSpaceOnUse">
-                <polygon points="30,1 59,17 59,35 30 59,52 1,52"/>
-                
+                <polygon points="30,1 59,17 59,35 30 51, 1 35, 1 17" fill="none" stroke="#c9a227" stroke-width="0.5" opacity="0.18"/>
+              </pattern>
+            </defs>
+            <rect width="100%" height="100%" fill="url(#hexPat)" />
+          </svg>
+        </div>
+
+        <div class="welcome-badge-home">
+          <i class="fa-solid fa-hand-holding-hand"></i> أهلاً بكم في بنك تمكين الرقمي
+        </div>
+        <h2>شريكك الاستراتيجي لتعزيز <span class="gold-word">التمكين والنمو</span></h2>
+        <p class="hero-desc">منصة مالية رقمية متكاملة مصممة خصيصاً لدعم وتتبع الكفاءات، استعراض أداء البورصة المباشر، وتكريم المتميزين بالأوسمة الشرفية.</p>
+
+        <!-- Stats Row -->
+        <div class="stats-row">
+          <div class="stat-card">
+            <div class="stat-icon-box si-blue"><i class="fa-solid fa-graduation-cap"></i></div>
+            <div class="stat-value">1,240</div>
+            <div class="stat-label">إجمالي الطلاب الفاعلين</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-icon-box si-gold"><i class="fa-solid fa-coins"></i></div>
+            <div class="stat-value">84.5K</div>
+            <div class="stat-label">حجم التداولات اليومية</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-icon-box si-green"><i class="fa-solid fa-award"></i></div>
+            <div class="stat-value">450</div>
+            <div class="stat-label">أوسمة ممنوحة</div>
+          </div>
+        </div>
+
+        <!-- Navigation Grid -->
+        <div class="grid">
+          <div class="card-btn" onclick="showPage('students')">
+            <div class="card-icon-wrap ci-navy"><i class="fa-solid fa-users"></i></div>
+            <h3>قائمة الطلاب والترتيب</h3>
+            <p class="card-desc">استعرض لوحة الشرف اليومية وقائمة مستويات الطلاب ونقاطهم الحالية المتراكمة.</p>
+          </div>
+          <div class="card-btn" onclick="showPage('bourse')">
+            <div class="card-icon-wrap ci-gold"><i class="fa-solid fa-chart-line"></i></div>
+            <h3>مؤشرات البورصة المباشرة</h3>
+            <p class="card-desc">تابع حركة الأسهم والمؤشرات المالية وتحديثات السوق الفورية لحظة بلحظة.</p>
+          </div>
+          <div class="card-btn" onclick="showPage('badges')">
+            <div class="card-icon-wrap ci-purple"><i class="fa-solid fa-medal"></i></div>
+            <h3>منصة الأوسمة الرقمية</h3>
+            <p class="card-desc">اطلع على أوسمة التميز الممنوحة للمبدعين ومعايير استحقاق كل وسام شرفي.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ==================== STUDENTS ==================== -->
+    <div class="page" id="students">
+      <div class="page-top">
+        <h2><i class="fa-solid fa-users"></i> لوحة شرف الطلاب المتصدرين</h2>
+        <div class="count-badge"><i class="fa-solid fa-user-check"></i> المسجلين: 1,240 طالب</div>
+      </div>
+
+      <!-- Podium Top 3 -->
+      <div class="podium-wrap">
+        <div class="podium-card p-second">
+          <span class="podium-medal">🥈</span>
+          <div class="podium-name">عبدالله بن محمد العتيبي</div>
+          <div class="podium-pts">2,840 <span>نقطة</span></div>
+        </div>
+        <div class="podium-card p-first">
+          <span class="podium-medal">🥇</span>
+          <div class="podium-name">سلمان بن خالد الدوسري</div>
+          <div class="podium-pts">3,150 <span>نقطة</span></div>
+        </div>
+        <div class="podium-card p-third">
+          <span class="podium-medal">🥉</span>
+          <div class="podium-name">فهد بن عبد العزيز السديري</div>
+          <div class="podium-pts">2,610 <span>نقطة</span></div>
+        </div>
+      </div>
+
+      <!-- Table Content -->
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th style="width: 80px;">الترتيب</th>
+              <th>اسم الطالب الثلاثي</th>
+              <th>المستوى الأكاديمي</th>
+              <th>حالة الحساب</th>
+              <th>الرصيد الإجمالي</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><span class="rank-badge rb-1">1</span></td>
+              <td>سلمان بن خالد الدوسري</td>
+              <td>المستوى الثامن</td>
+              <td><span style="color: #16a34a;"><i class="fa-solid fa-circle-check"></i> نشط</span></td>
+              <td><div class="pts-pill"><i class="fa-solid fa-coins"></i> 3,150 نقطة</div></td>
+            </tr>
+            <tr>
+              <td><span class="rank-badge rb-2">2</span></td>
+              <td>عبدالله بن محمد العتيبي</td>
+              <td>المستوى السابع</td>
+              <td><span style="color: #16a34a;"><i class="fa-solid fa-circle-check"></i> نشط</span></td>
+              <td><div class="pts-pill"><i class="fa-solid fa-coins"></i> 2,840 نقطة</div></td>
+            </tr>
+            <tr>
+              <td><span class="rank-badge rb-3">3</span></td>
+              <td>فهد بن عبد العزيز السديري</td>
+              <td>المستوى الثامن</td>
+              <td><span style="color: #16a34a;"><i class="fa-solid fa-circle-check"></i> نشط</span></td>
+              <td><div class="pts-pill"><i class="fa-solid fa-coins"></i> 2,610 نقطة</div></td>
+            </tr>
+            <tr>
+              <td><span class="rank-badge rb-n">4</span></td>
+              <td>خالد بن وليد الشمري</td>
+              <td>المستوى السادس</td>
+              <td><span style="color: #16a34a;"><i class="fa-solid fa-circle-check"></i> نشط</span></td>
+              <td><div class="pts-pill"><i class="fa-solid fa-coins"></i> 2,450 نقطة</div></td>
+            </tr>
+            <tr>
+              <td><span class="rank-badge rb-n">5</span></td>
+              <td>عبدالرحمن بن أحمد القحطاني</td>
+              <td>المستوى السابع</td>
+              <td><span style="color: #dc2626;"><i class="fa-solid fa-circle-xmark"></i> غير نشط</span></td>
+              <td><div class="pts-pill"><i class="fa-solid fa-coins"></i> 2,200 نقطة</div></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- ==================== BOURSE ==================== -->
+    <div class="page" id="bourse">
+      <div class="page-top">
+        <h2><i class="fa-solid fa-chart-line"></i> شاشة البورصة المباشرة والمؤشرات</h2>
+        <div class="live-badge"><div class="live-dot"></div> التحديث المباشر للأسوق</div>
+      </div>
+
+      <div class="bourse-stats-row">
+        <div class="bourse-stat">
+          <div class="bs-icon up"><i class="fa-solid fa-arrow-trend-up"></i></div>
+          <div class="bs-info">
+            <strong>11,450.80</strong>
+            <span>المؤشر العام للبنك (TKB)</span>
+          </div>
+        </div>
+        <div class="bourse-stat">
+          <div class="bs-icon gold"><i class="fa-solid fa-money-bill-trend-up"></i></div>
+          <div class="bs-info">
+            <strong>+ 1.45%</strong>
+            <span>نسبة التغير اليومي للمؤشرات</span>
+          </div>
+        </div>
+        <div class="bourse-stat">
+          <div class="bs-icon blue"><i class="fa-solid fa-vault"></i></div>
+          <div class="bs-info">
+            <strong>42,150,000 ر.س</strong>
+            <span>إجمالي حجم السيولة المتداولة</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="chart-card">
+        <canvas id="bourseChart" style="max-height: 380px; width: 100%;"></canvas>
+      </div>
+    </div>
+
+    <!-- ==================== BADGES ==================== -->
+    <div class="page" id="badges">
+      <div class="page-top">
+        <h2><i class="fa-solid fa-medal"></i> منصة استعراض وتوثيق الأوسمة الرقمية</h2>
+        <div class="count-badge"><i class="fa-solid fa-ribbon"></i> الفئات المتاحة: 3 فئات شرفية</div>
+      </div>
+
+      <div class="badges-grid">
+        <div class="badge-card bc-gold">
+          <span class="medal-emoji">🥇</span>
+          <span class="badge-rank">الفئة الماسية</span>
+          <span class="badge-name">وسام القيادة والابتكار</span>
+          <p class="card-desc" style="margin-bottom: 1rem;">يمنح هذا الوسام الرفيع للطلاب الذين حققوا الصدارة المطلقة في المبادرات الريادية والابتكار الأكاديمي.</p>
+          <span class="badge-pts">3,000 <span>نقطة كحد أدنى</span></span>
+        </div>
+        <div class="badge-card bc-silver">
+          <span class="medal-emoji">🥈</span>
+          <span class="badge-rank">الفئة الذهبية</span>
+          <span class="badge-name">وسام التميز الأكاديمي</span>
+          <p class="card-desc" style="margin-bottom: 1rem;">يمنح هذا الوسام الشرفي لمن حافظ على أدائه المتميز ومستواه المتقدم في الفعاليات والأنشطة المتكاملة للبنك.</p>
+          <span class="badge-pts">2,000 <span>نقطة كحد أدنى</span></span>
+        </div>
+        <div class="badge-card bc-bronze">
+          <span class="medal-emoji">🥉</span>
+          <span class="badge-rank">الفئة الفضية</span>
+          <span class="badge-name">وسام العطاء والمشاركة</span>
+          <p class="card-desc" style="margin-bottom: 1rem;">يمنح هذا الوسام التشجيعي تقديراً للجهود الفاعلة، والمشاركات المستمرة في تنمية المهارات والعمل الجماعي.</p>
+          <span class="badge-pts">1,000 <span>نقطة كحد أدنى</span></span>
+        </div>
+      </div>
+    </div>
+
+    <!-- ==================== ABOUT ==================== -->
+    <div class="page" id="about">
+      <div class="page-top">
+        <h2><i class="fa-solid fa-circle-info"></i> نبذة تعريفية عن بنك تمكين المركزي</h2>
+      </div>
+
+      <div class="about-grid">
+        <div class="about-card">
+          <div class="about-icon-box"><i class="fa-solid fa-bullseye"></i></div>
+          <h3>رؤيتنا الاستراتيجية</h3>
+          <p>نسعى في بنك تمكين المركزي إلى بناء بيئة تعليمية واقتصادية رائدة تعتمد بالكامل على التقنيات الرقمية المبتكرة، لتأهيل الكفاءات الطلابية الشابة وتزويدهم بالأدوات اللازمة لفهم الأنظمة المالية والريادية المعاصرة بما يتوافق مع الرؤى المستقبلية الطموحة.</p>
+        </div>
+        <div class="about-card">
+          <div class="about-icon-box"><i class="fa-solid fa-lightbulb"></i></div>
+          <h3>رسالة المنصة</h3>
+          <p>تمكين الجيل الواعد وتوجيه طاقاتهم الإبداعية عبر تطبيق آليات تحفيز متطورة تعتمد على أنظمة النقاط (Gamification) ومحاكاة البورصة الفورية والتقييم العادل المستمر، لغرس قيم الانضباط والمنافسة الشريفة والتميز المعرفي المستدام.</p>
+        </div>
+      </div>
+
+      <div class="features-row">
+        <div class="feature-pill">
+          <i class="fa-solid fa-shield-halved"></i>
+          <h4>منظومة آمنة بالكامل</h4>
+          <p>تتمتع كافة البيانات والمعاملات بأعلى درجات الحماية الرقمية والخصوصية الفائقة.</p>
+        </div>
+        <div class="feature-pill">
+          <i class="fa-solid fa-gauge-high"></i>
+          <h4>لوحة تحكم فورية</h4>
+          <p>تحديثات تلقائية متطورة ومؤشرات أداء واضحة تلخص رصيد كل مستخدم فورياً.</p>
+        </div>
+        <div class="feature-pill">
+          <i class="fa-solid fa-bezier-curve"></i>
+          <h4>تكامل تقني مرن</h4>
+          <p>تصميم متجاوب بالكامل يتناسب مع كافة الشاشات والأجهزة اللوحية والذكية.</p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- ===== FOOTER ===== -->
+  <footer>
+    <p>جميع الحقوق محفوظة © ٢٠٢٦ <a href="#">بنك تمكين المركزي</a> | تم التطوير بكل <i class="fa-solid fa-heart"></i> للمنصة الرقمية</p>
+  </footer>
+
+  <!-- ===== JAVASCRIPT SCRIPTS ===== -->
+  <script>
+    // Navigation Page Switcher Function
+    function showPage(pageId) {
+      // Hide all content views
+      const pages = document.querySelectorAll('.page');
+      pages.forEach(p => p.classList.remove('active'));
+
+      // Remove current state from header links
+      const navLinks = document.querySelectorAll('.nav-links a');
+      navLinks.forEach(l => l.classList.remove('active'));
+
+      // Display specified page block
+      const targetPage = document.getElementById(pageId);
+      if (targetPage) {
+        targetPage.classList.add('active');
+      }
+
+      // Activate clicked element navigation look
+      const targetNav = document.getElementById('nav-' + pageId);
+      if (targetNav) {
+        targetNav.classList.add('active');
+      }
+
+      // Trigger standard chart rendering fix if financial view selected
+      if (pageId === 'bourse') {
+        initChartOnce();
+      }
+    }
+
+    // ChartJS Setup Instance Variable Guard
+    let bourseChartInstance = null;
+
+    function initChartOnce() {
+      // Ensure element context exists and create instance context safely
+      const ctx = document.getElementById('bourseChart');
+      if (!ctx) return;
+
+      if (bourseChartInstance !== null) {
+        bourseChartInstance.destroy();
+      }
+
+      bourseChartInstance = new Chart(ctx, {
+        type: 'line',
+        data: {
+          labels: ['٠٩:٠٠', '١٠:٠٠', '١١:٠٠', '١٢:٠٠', '٠١:٠٠', '٠٢:٠٠', '٠٣:٠٠'],
+          datasets: [{
+            label: 'مؤشر أداء السوق العام TKB',
+            data: [11290, 11340, 11310, 11390, 11420, 11400, 11450.80],
+            borderColor: '#c9a227',
+            backgroundColor: 'rgba(201, 162, 39, 0.08)',
+            borderWidth: 3,
+            fill: true,
+            tension: 0.35,
+            pointBackgroundColor: '#0f2447',
+            pointBorderColor: '#e8c04a',
+            pointBorderWidth: 2,
+            pointRadius: 5,
+            pointHoverRadius: 7
+          }]
+        },
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          plugins: {
+            legend: {
+              labels: {
+                font: { family: 'Tajawal', size: 12, weight: '600' },
+                color: '#0f2447'
+              }
+            }
+          },
+          scales: {
+            y: {
+              ticks: { font: { family: 'Tajawal' }, color: '#64748b' },
+              grid: { color: 'rgba(15, 36, 71, 0.04)' }
+            },
+            x: {
+              ticks: { font: { family: 'Tajawal' }, color: '#64748b' },
+              grid: { display: false }
+            }
+          }
+        }
+      });
+    }
+  </script>
+</body>
+</html>
