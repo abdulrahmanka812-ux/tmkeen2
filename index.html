@@ -14,24 +14,24 @@
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     :root {
-      --navy:       #0f2447;
-      --navy-mid:   #1a3a6b;
-      --navy-light: #1e4d8c;
-      --gold:       #c9a227;
-      --gold-light: #e8c04a;
-      --gold-pale:  #fdf3d7;
-      --white:      #ffffff;
-      --bg:         #f0f4fb;
-      --card-bg:    rgba(255,255,255,0.92);
-      --text-main:  #0f2447;
-      --text-muted: #64748b;
-      --border:     rgba(201,162,39,0.18);
-      --shadow-sm:  0 2px 12px rgba(15,36,71,0.08);
-      --shadow-md:  0 8px 30px rgba(15,36,71,0.13);
-      --shadow-lg:  0 16px 50px rgba(15,36,71,0.18);
-      --radius:     18px;
-      --radius-sm:  10px;
-      --transition: all 0.3s cubic-bezier(0.4,0,0.2,1);
+      --navy:        #0f2447;
+      --navy-mid:    #1a3a6b;
+      --navy-light:  #1e4d8c;
+      --gold:        #c9a227;
+      --gold-light:  #e8c04a;
+      --gold-pale:   #fdf3d7;
+      --white:       #ffffff;
+      --bg:          #f0f4fb;
+      --card-bg:     rgba(255,255,255,0.92);
+      --text-main:   #0f2447;
+      --text-muted:  #64748b;
+      --border:      rgba(201,162,39,0.18);
+      --shadow-sm:   0 2px 12px rgba(15,36,71,0.08);
+      --shadow-md:   0 8px 30px rgba(15,36,71,0.13);
+      --shadow-lg:   0 16px 50px rgba(15,36,71,0.18);
+      --radius:      18px;
+      --radius-sm:   10px;
+      --transition:  all 0.3s cubic-bezier(0.4,0,0.2,1);
     }
 
     html { scroll-behavior: smooth; }
@@ -504,7 +504,7 @@
       color: var(--gold);
       font-weight: 700;
       font-size: 0.85rem;
-      padding: 0.25rem 0.7rem;
+      padding: 0.25rem 0.7()rem;
       border-radius: 20px;
     }
 
@@ -685,9 +685,8 @@
 
   <header>
     <div class="logo-area">
-      <img src="logo.svg" alt="تمكين"/>
       <div class="logo-text">
-        <span class="brand">بنك تمكين</span>
+        <span class="brand">بنك تمكين المركزي</span>
         <span class="sub">المنصة الرقمية الرسمية</span>
       </div>
     </div>
@@ -720,7 +719,6 @@
 
     <!-- ========== HOME ========== -->
     <div class="page active" id="home">
-
       <div class="home-hero">
         <div class="welcome-badge">
           <i class="fa-solid fa-star"></i>
@@ -821,7 +819,7 @@
         </div>
         <div class="podium-card third">
           <div class="podium-medal">🥉</div>
-          <div class="podium-name">عبد الرحمن على العريني</div>
+          <div class="podium-name">عبد الرحمن علي العريني</div>
           <div class="podium-pts">2,850 <span>نقطة</span></div>
         </div>
       </div>
@@ -838,9 +836,194 @@
           <tbody>
             <tr><td><span class="rank-badge rank-1">1</span></td><td>عبد الكريم سليمان الدويش</td><td><span class="points-pill"><i class="fa-solid fa-star"></i>3,250</span></td></tr>
             <tr><td><span class="rank-badge rank-2">2</span></td><td>محمد فيصل الشهراني</td><td><span class="points-pill"><i class="fa-solid fa-star"></i>3,175</span></td></tr>
-            <tr><td><span class="rank-badge rank-3">3</span></td><td>عبد الرحمن على العريني</td><td><span class="points-pill"><i class="fa-solid fa-star"></i>2,850</span></td></tr>
+            <tr><td><span class="rank-badge rank-3">3</span></td><td>عبد الرحمن علي العريني</td><td><span class="points-pill"><i class="fa-solid fa-star"></i>2,850</span></td></tr>
             <tr><td><span class="rank-badge rank-n">4</span></td><td>يزيد وليد الحمدان</td><td><span class="points-pill"><i class="fa-solid fa-star"></i>2,800</span></td></tr>
             <tr><td><span class="rank-badge rank-n">5</span></td><td>عبد الملك هشام السعيد</td><td><span class="points-pill"><i class="fa-solid fa-star"></i>2,800</span></td></tr>
             <tr><td><span class="rank-badge rank-n">6</span></td><td>تميم بدر الجبر</td><td><span class="points-pill"><i class="fa-solid fa-star"></i>2,550</span></td></tr>
             <tr><td><span class="rank-badge rank-n">7</span></td><td>عبد الله فيصل السويدي</td><td><span class="points-pill"><i class="fa-solid fa-star"></i>2,500</span></td></tr>
-            <tr><td><span class="rank-badge rank-n">8</span></td><td>عبد الله وائل العريني
+            <tr><td><span class="rank-badge rank-n">8</span></td><td>عبد الله وائل العريني</td><td><span class="points-pill"><i class="fa-solid fa-star"></i>2,450</span></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- ========== BOURSE ========== -->
+    <div class="page" id="bourse">
+      <div class="page-header">
+        <h2><i class="fa-solid fa-chart-line"></i> مؤشر النقاط الحي (البورصة)</h2>
+        <span class="live-badge"><i class="fa-solid fa-circle pulse-dot"></i> مباشر</span>
+      </div>
+      <div class="chart-card">
+        <canvas id="bourseChart"></canvas>
+      </div>
+    </div>
+
+    <!-- ========== BADGES ========== -->
+    <div class="page" id="badges">
+      <div class="page-header">
+        <h2><i class="fa-solid fa-medal"></i> لوحة أوسمة التميز</h2>
+      </div>
+      <div class="badges-grid">
+        <div class="badge-card gold-card">
+          <div class="medal-emoji">🏆</div>
+          <div class="badge-rank">الوسام الذهبي</div>
+          <div class="badge-name">عبد الكريم سليمان الدويش</div>
+          <div class="badge-pts">3,250 <span>نقطة</span></div>
+        </div>
+        <div class="badge-card silver-card">
+          <div class="medal-emoji">🥈</div>
+          <div class="badge-rank">الوسام الفضي</div>
+          <div class="badge-name">محمد فيصل الشهراني</div>
+          <div class="badge-pts">3,175 <span>نقطة</span></div>
+        </div>
+        <div class="badge-card bronze-card">
+          <div class="medal-emoji">🥉</div>
+          <div class="badge-rank">الوسام البرونزي</div>
+          <div class="badge-name">عبد الرحمن علي العريني</div>
+          <div class="badge-pts">2,850 <span>نقطة</span></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ========== ABOUT ========== -->
+    <div class="page" id="about">
+      <div class="page-header">
+        <h2><i class="fa-solid fa-building-columns"></i> عن بنك تمكين المركزي</h2>
+      </div>
+      <div class="about-grid">
+        <div class="about-card">
+          <div class="about-icon"><i class="fa-solid fa-eye"></i></div>
+          <h3>رؤيتنا</h3>
+          <p>بناء بيئة تعليمية وتحفيزية رقمية رائدة، تعتمد على التلعيب (Gamification) لتعزيز السلوك الإيجابي والتفوق الأكاديمي والمهاري لدى الطلاب.</p>
+        </div>
+        <div class="about-card">
+          <div class="about-icon"><i class="fa-solid fa-bullseye"></i></div>
+          <h3>رسالتنا</h3>
+          <p>تمكين الجيل القادِم عبر تحويل الإنجازات اليومية إلى قيم ملموسة، وخلق منافسة شريفة ومحفزة تنمي روح القيادة والمسؤولية المالية والعملية منذ الصغر.</p>
+        </div>
+      </div>
+      <div class="about-features">
+        <div class="feature-pill">
+          <i class="fa-solid fa-coins"></i>
+          <h4>نظام نقاط ذكي</h4>
+          <p>احتساب فوري ودقيق للإنجازات</p>
+        </div>
+        <div class="feature-pill">
+          <i class="fa-solid fa-chart-pie"></i>
+          <h4>مؤشرات مباشرة</h4>
+          <p>متابعة الأداء بشكل مرئي ومتطور</p>
+        </div>
+        <div class="feature-pill">
+          <i class="fa-solid fa-shield-halved"></i>
+          <h4>بيئة آمنة</h4>
+          <p>منصة مركزية وموثوقة بالكامل</p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <footer>
+    حقوق الطبع محفوظة © 2026 | المنصة الرقمية لـ <span>بنك تمكين المركزي</span>
+  </footer>
+
+  <!-- ========== JAVASCRIPT SYSTEM ========== -->
+  <script>
+    // نظام التنقل بين الصفحات
+    function showPage(pageId) {
+      // إخفاء جميع الصفحات
+      const pages = document.querySelectorAll('.page');
+      pages.forEach(page => page.classList.remove('active'));
+
+      // إزالة الحالة النشطة من أزرار التنقل
+      const navLinks = document.querySelectorAll('.nav-links a');
+      navLinks.forEach(link => link.classList.remove('active'));
+
+      // إظهار الصفحة المطلوبة
+      const targetPage = document.getElementById(pageId);
+      if(targetPage) {
+        targetPage.classList.add('active');
+      }
+
+      // تفعيل زر التنقل الخاص بالصفحة
+      const targetNav = document.getElementById('nav-' + pageId);
+      if(targetNav) {
+        targetNav.classList.add('active');
+      }
+
+      // تهيئة الرسم البياني إذا دخل المستخدم لصفحة البورصة
+      if (pageId === 'bourse') {
+        initChart();
+      }
+    }
+
+    // تهيئة وتشغيل الرسم البياني (Chart.js) عند الطلب
+    let myChart = null;
+    function initChart() {
+      const ctx = document.getElementById('bourseChart');
+      if (!ctx) return;
+      
+      // لتفادي تكرار إنشاء الرسم البياني فوق القديم
+      if (myChart !== null) {
+        return; 
+      }
+
+      myChart = new Chart(ctx, {
+        type: 'line',
+        data: {
+          labels: ['الأسبوع 1', 'الأسبوع 2', 'الأسبوع 3', 'الأسبوع 4', 'الأسبوع 5'],
+          datasets: [
+            {
+              label: 'عبد الكريم الدويش',
+              data: [1500, 2100, 2400, 2900, 3250],
+              borderColor: '#c9a227',
+              backgroundColor: 'rgba(201, 162, 39, 0.1)',
+              borderWidth: 3,
+              tension: 0.3,
+              fill: true
+            },
+            {
+              label: 'محمد الشهراني',
+              data: [1800, 1950, 2300, 2850, 3175],
+              borderColor: '#1e4d8c',
+              backgroundColor: 'transparent',
+              borderWidth: 2,
+              tension: 0.3
+            },
+            {
+              label: 'عبد الرحمن العريني',
+              data: [1200, 1600, 2100, 2400, 2850],
+              borderColor: '#cd7f32',
+              backgroundColor: 'transparent',
+              borderWidth: 2,
+              tension: 0.3
+            }
+          ]
+        },
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          plugins: {
+            legend: {
+              labels: {
+                font: { family: 'Tajawal', size: 12 }
+              }
+            }
+          },
+          scales: {
+            y: {
+              beginAtZero: false,
+              grid: { color: 'rgba(0,0,0,0.05)' },
+              ticks: { font: { family: 'Tajawal' } }
+            },
+            x: {
+              grid: { display: false },
+              ticks: { font: { family: 'Tajawal' } }
+            }
+          }
+        }
+      });
+    }
+  </script>
+</body>
+</html>
