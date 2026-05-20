@@ -41,6 +41,8 @@
       background: var(--bg);
       color: var(--text-main);
       min-height: 100vh;
+      display: flex;
+      flex-direction: column;
       direction: rtl;
     }
 
@@ -149,13 +151,16 @@
 
     /* ===== CONTAINER ===== */
     .container {
+      flex: 1;
+      min-height: 0;
       max-width: 1140px;
       margin: 0 auto;
       padding: 2.5rem 1.5rem;
     }
 
     /* ===== PAGE SYSTEM ===== */
-    .page { display: none; animation: fadeIn 0.4s ease; }
+    .page {
+      flex: 1; display: none; animation: fadeIn 0.4s ease; }
     .page.active { display: block; }
 
     @keyframes fadeIn {
@@ -513,6 +518,7 @@
     }
 
     .chart-card {
+      min-height: calc(100vh - 220px);
       background: var(--card-bg);
       border: 1px solid var(--border);
       border-radius: var(--radius);
