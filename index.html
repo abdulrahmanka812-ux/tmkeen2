@@ -492,7 +492,7 @@
       color: var(--gold);
       font-weight: 700;
       font-size: 0.85rem;
-      padding: 0.25rem 0.7rem;
+      padding: 0.25rem 0.7;
       border-radius: 20px;
     }
 
@@ -518,7 +518,6 @@
     }
 
     .chart-card {
-      min-height: calc(100vh - 220px);
       background: var(--card-bg);
       border: 1px solid var(--border);
       border-radius: var(--radius);
@@ -635,7 +634,7 @@
     .feature-pill h4 { font-size: 0.88rem; font-weight: 700; color: var(--navy); }
     .feature-pill p  { font-size: 0.76rem; color: var(--text-muted); margin-top: 0.25rem; }
 
-    /* ===== NEW: STUDENT DETAILS (INTERNAL PAGE) ===== */
+    /* ===== STUDENT DETAILS (INTERNAL PAGE) ===== */
     .back-btn {
       background: var(--white);
       border: 1px solid var(--border);
@@ -649,12 +648,13 @@
       gap: 0.5rem;
       transition: var(--transition);
       box-shadow: var(--shadow-sm);
+      margin-bottom: 1rem;
     }
 
     .back-btn:hover {
       background: var(--gold-pale);
       color: var(--gold);
-      transform: translateX(4px);
+      transform: translateX(-4px);
     }
 
     .details-layout {
@@ -832,40 +832,39 @@
       .about-features { grid-template-columns: 1fr; }
     }
   
-/* GROUPS NAVIGATION */
-.groups-nav-bar {
-  background: rgba(0,0,0,0.15);
-  display: flex;
-  justify-content: center;
-  gap: 0.5rem;
-  padding: 0.5rem 1rem;
-  border-bottom: 1px solid rgba(201,162,39,0.2);
-}
-.group-link {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.4rem;
-  color: rgba(255,255,255,0.75);
-  text-decoration: none;
-  font-family: 'Tajawal', sans-serif;
-  font-size: 0.85rem;
-  font-weight: 600;
-  padding: 0.4rem 1.2rem;
-  border-radius: 50px;
-  transition: all 0.3s ease;
-  border: 1px solid transparent;
-}
-.group-link:hover {
-  color: #e8c04a;
-  background: rgba(201,162,39,0.12);
-  border-color: rgba(201,162,39,0.3);
-}
-.group-link.active {
-  background: linear-gradient(135deg, #c9a227 0%, #e8c04a 100%);
-  color: #0f2447;
-  box-shadow: 0 4px 12px rgba(201,162,39,0.35);
-}
-
+    /* GROUPS NAVIGATION */
+    .groups-nav-bar {
+      background: rgba(0,0,0,0.15);
+      display: flex;
+      justify-content: center;
+      gap: 0.5rem;
+      padding: 0.5rem 1rem;
+      border-bottom: 1px solid rgba(201,162,39,0.2);
+    }
+    .group-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      color: rgba(255,255,255,0.75);
+      text-decoration: none;
+      font-family: 'Tajawal', sans-serif;
+      font-size: 0.85rem;
+      font-weight: 600;
+      padding: 0.4rem 1.2rem;
+      border-radius: 50px;
+      transition: all 0.3s ease;
+      border: 1px solid transparent;
+    }
+    .group-link:hover {
+      color: #e8c04a;
+      background: rgba(201,162,39,0.12);
+      border-color: rgba(201,162,39,0.3);
+    }
+    .group-link.active {
+      background: linear-gradient(135deg, #c9a227 0%, #e8c04a 100%);
+      color: #0f2447;
+      box-shadow: 0 4px 12px rgba(201,162,39,0.35);
+    }
   </style>
 </head>
 <body>
@@ -901,10 +900,11 @@
       مباشر الآن
     </div>
   </header>
+
   <div class="groups-nav-bar">
-    <a href="index.html" class="group-link active"><i class="fa-solid fa-users"></i> الأخاء</a>
-    <a href="ataa.html" class="group-link"><i class="fa-solid fa-hand-holding-heart"></i> العطاء</a>
-    <a href="namaa.html" class="group-link"><i class="fa-solid fa-seedling"></i> النماء</a>
+    <a href="#" class="group-link active"><i class="fa-solid fa-users"></i> الإخاء</a>
+    <a href="#" class="group-link"><i class="fa-solid fa-hand-holding-heart"></i> العطاء</a>
+    <a href="#" class="group-link"><i class="fa-solid fa-seedling"></i> النماء</a>
   </div>
 
   <div class="container">
@@ -1036,6 +1036,238 @@
         </table>
       </div>
     </div>
+
+    <div class="page" id="student-details">
+      <button class="back-btn" onclick="showPage('students')">
+        <i class="fa-solid fa-arrow-right"></i> العودة لسجل المنتسبين
+      </button>
+      
+      <div class="details-layout">
+        <div>
+          <div class="digital-card">
+            <div class="card-chip-row">
+              <div class="card-chip"></div>
+              <div class="card-bank-name">TAMKEEN CENTRAL BANK</div>
+            </div>
+            <div class="card-number" id="lbl-card-number">XXXX XXXX XXXX 1001</div>
+            <div class="card-holder">
+              <div>
+                <div class="card-holder-label">صاحب الحساب</div>
+                <div class="card-holder-name" id="lbl-student-name">عبد الكريم سليمان الدويش</div>
+              </div>
+              <div style="text-align: left;">
+                <div class="card-holder-label">الرصيد الحالي</div>
+                <div class="card-holder-name" id="lbl-student-points" style="color: var(--gold-light);">3,250 ن</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="progress-widget">
+            <div class="progress-info">
+              <span>مستوى التقدم للوسام القادم</span>
+              <span id="lbl-progress-percent">81%</span>
+            </div>
+            <div class="progress-bar-bg">
+              <div class="progress-bar-fill" id="progress-fill"></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="ledger-card">
+          <h3><i class="fa-solid fa-list-check"></i> كشف العمليات الأخير</h3>
+          <div class="table-wrap" style="margin-top:1rem;">
+            <table>
+              <thead>
+                <tr>
+                  <th>التاريخ</th>
+                  <th>النشاط / السلوك</th>
+                  <th>المقدار</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr><td>2026/05/18</td><td>التزام متميز بالمشاركة الصفية</td><td><span class="badge-status status-plus">+150 نقطة</span></td></tr>
+                <tr><td>2026/05/15</td><td>حضور مبكر وتفاعل إيجابي</td><td><span class="badge-status status-plus">+100 نقطة</span></td></tr>
+                <tr><td>2026/05/10</td><td>حل التحدي البرمي الأسبوعي</td><td><span class="badge-status status-plus">+250 نقطة</span></td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="page" id="bourse">
+      <div class="bourse-header">
+        <h2><i class="fa-solid fa-chart-line"></i> بورصة النقاط والمؤشرات</h2>
+        <span class="live-badge"><i class="fa-solid fa-circle"></i> مباشر</span>
+      </div>
+      <div class="chart-card">
+        <canvas id="bourseChart"></canvas>
+      </div>
+    </div>
+
+    <div class="page" id="badges">
+      <div class="section-title">
+        <h2><i class="fa-solid fa-medal"></i> منصة الأوسمة الشرفية</h2>
+      </div>
+      <div class="badges-grid">
+        <div class="badge-card gold-card">
+          <div class="medal-emoji">🥇</div>
+          <div class="badge-rank">وسام النخبة العالي</div>
+          <div class="badge-name">الماسي الملكي</div>
+          <div class="badge-pts">3,000+ <span>نقطة</span></div>
+        </div>
+        <div class="badge-card silver-card">
+          <div class="medal-emoji">🥈</div>
+          <div class="badge-rank">وسام التميز المستمر</div>
+          <div class="badge-name">الذهبي المتفوق</div>
+          <div class="badge-pts">2,000+ <span>نقطة</span></div>
+        </div>
+        <div class="badge-card bronze-card">
+          <div class="medal-emoji">🥉</div>
+          <div class="badge-rank">وسام العطاء والمبادرة</div>
+          <div class="badge-name">الفضي المتقدم</div>
+          <div class="badge-pts">1,000+ <span>نقطة</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="page" id="about">
+      <div class="section-title">
+        <h2><i class="fa-solid fa-building-columns"></i> حول بنك تمكين المركزي</h2>
+      </div>
+      <div class="about-grid">
+        <div class="about-card">
+          <div class="about-icon"><i class="fa-solid fa-eye"></i></div>
+          <h3>رؤيتنا</h3>
+          <p>بناء جيل ريادي يمتلك مهارات الإدارة الذاتية والتخطيط المالي والعملي عبر بيئة تعليمية ذكية تحاكي الأنظمة الاقتصادية والتحفيزية العالمية.</p>
+        </div>
+        <div class="about-card">
+          <div class="about-icon"><i class="fa-solid fa-bullseye"></i></div>
+          <h3>رسالتنا</h3>
+          <p>تفعيل أدوات التحفيز الرقمي، وصقل المواهب، وتنمية روح التنافس الشريف المستدام بين المنتسبين عبر آليات واضحة ومعايير تقييم دقيقة.</p>
+        </div>
+      </div>
+      <div class="about-features">
+        <div class="feature-pill">
+          <i class="fa-solid fa-shield-halved"></i>
+          <h4>نظام دقيق</h4>
+          <p>رصد فوري وحوكمة تضمن العدالة.</p>
+        </div>
+        <div class="feature-pill">
+          <i class="fa-solid fa-wand-magic-sparkles"></i>
+          <h4>تحفيز مستمر</h4>
+          <p>أوسمة وجوائز ومراتب شرفية.</p>
+        </div>
+        <div class="feature-pill">
+          <i class="fa-solid fa-chart-pie"></i>
+          <h4>لوحات تحكم تفاعلية</h4>
+          <p>متابعة فورية لمستويات النمو.</p>
+        </div>
+      </div>
+    </div>
+
   </div>
+
+  <footer>
+    حقوق النشر والملكية الفكرية محفوظة لـ <span>بنك تمكين المركزي</span> &copy; 2026
+  </footer>
+
+  <script>
+    // نظام التنقل بين الصفحات
+    function showPage(pageId) {
+      // إخفاء كل الصفحات
+      document.querySelectorAll('.page').forEach(page => {
+        page.classList.remove('active');
+      });
+      // إزالة الحالة النشطة من أزرار الهيدر
+      document.querySelectorAll('.nav-links a').forEach(link => {
+        link.classList.remove('active');
+      });
+
+      // إظهار الصفحة المطلوبة
+      const targetPage = document.getElementById(pageId);
+      if(targetPage) {
+        targetPage.classList.add('active');
+      }
+
+      // تفعيل زر الملاحة المقابل
+      const targetNav = document.getElementById('nav-' + (pageId === 'student-details' ? 'students' : pageId));
+      if(targetNav) {
+        targetNav.classList.add('active');
+      }
+
+      // إعادة تهيئة الرسم البياني عند فتح البورصة لضمان الأبعاد الصحيحة
+      if(pageId === 'bourse') {
+        initBourseChart();
+      }
+    }
+
+    // عرض تفاصيل الطالب
+    function viewStudentDetails(name, points, cardNum) {
+      showPage('student-details');
+      document.getElementById('lbl-student-name').innerText = name;
+      document.getElementById('lbl-student-points').innerText = Number(points).toLocaleString() + ' ن';
+      document.getElementById('lbl-card-number').innerText = `XXXX XXXX XXXX ${cardNum.substring(1)}`;
+      
+      // حساب النسبة الافتراضية للتقدم نحو الوسام القادم (الحد الأقصى الافتراضي 4000 نقطة)
+      const maxTarget = 4000;
+      const percentage = Math.min(Math.round((points / maxTarget) * 100), 100);
+      
+      document.getElementById('lbl-progress-percent').innerText = percentage + '%';
+      
+      // تحريك شريط التقدم بتأثير سلس
+      setTimeout(() => {
+        document.getElementById('progress-fill').style.width = percentage + '%';
+      }, 100);
+    }
+
+    // إعداد وتشغيل نظام محرك الرسوم البيانية Chart.js
+    let bourseChartInstance = null;
+    function initBourseChart() {
+      const ctx = document.getElementById('bourseChart').getContext('2d');
+      
+      if(bourseChartInstance) {
+        bourseChartInstance.destroy();
+      }
+
+      bourseChartInstance = new Chart(ctx, {
+        type: 'line',
+        data: {
+          labels: ['الأسبوع 1', 'الأسبوع 2', 'الأسبوع 3', 'الأسبوع 4', 'الأسبوع 5', 'الأسبوع 6'],
+          datasets: [{
+            label: 'مؤشر نمو النقاط العام',
+            data: [1200, 1550, 1980, 2400, 2850, 3250],
+            borderColor: '#c9a227',
+            backgroundColor: 'rgba(201, 162, 39, 0.1)',
+            borderWidth: 3,
+            fill: true,
+            tension: 0.4,
+            pointBackgroundColor: '#0f2447',
+            pointBorderColor: '#e8c04a',
+            pointRadius: 6
+          }]
+        },
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          plugins: {
+            legend: {
+              labels: { font: { family: 'Tajawal', size: 12 }, color: '#0f2447' }
+            }
+          },
+          scales: {
+            y: {
+              grid: { color: 'rgba(15, 36, 71, 0.05)' },
+              ticks: { font: { family: 'Tajawal' }, color: '#64748b' }
+            },
+            x: {
+              grid: { display: false },
+              ticks: { font: { family: 'Tajawal' }, color: '#64748b' }
+            }
+          }
+        }
+      });
+    }
+  </script>
 </body>
 </html>
