@@ -986,37 +986,14 @@
             </tr>
           </thead>
           <tbody>
-       // Full students data extracted from Al-Ikhaa PDF
-const studentsFullDetails = [
-    { name: "محمد فيصل الشهراني", points: 4800, loop: "الإخاء", group: "الابتدائي", purchasePoints: 0 },
-    { name: "عبد الكريم سليمان الدويش", points: 4500, loop: "الإخاء", group: "الابتدائي", purchasePoints: 0 },
-    { name: "عبد الملك هشام السعيد", points: 4375, loop: "الإخاء", group: "الابتدائي", purchasePoints: 0 },
-    { name: "يزيد وليد الحمدان", points: 4100, loop: "الإخاء", group: "الابتدائي", purchasePoints: 0 },
-    { name: "عبد الله فيصل السويدي", points: 4050, loop: "الإخاء", group: "الابتدائي", purchasePoints: 0 },
-    { name: "تميم بدر الجبر", points: 3925, loop: "الإخاء", group: "الابتدائي", purchasePoints: 0 },
-    { name: "عبد الرحمن على العريني", points: 3900, loop: "الإخاء", group: "الابتدائي", purchasePoints: 0 },
-    { name: "عبد الله وائل العريني", points: 3850, loop: "الإخاء", group: "الابتدائي", purchasePoints: 0 },
-    { name: "البراء عبد الله العيدان", points: 3725, loop: "الإخاء", group: "الابتدائي", purchasePoints: 0 },
-    { name: "عبدالله فهد الماجد", points: 3630, loop: "الإخاء", group: "الابتدائي", purchasePoints: 0 },
-    { name: "زياد مازن الجريد", points: 3575, loop: "الإخاء", group: "الابتدائي", purchasePoints: 0 },
-    { name: "هشام العريني", points: 3400, loop: "الإخاء", group: "الابتدائي", purchasePoints: 0 },
-    { name: "سعد الاحمد", points: 3375, loop: "الإخاء", group: "الابتدائي", purchasePoints: 0 },
-    { name: "عمر المهيزع", points: 3300, loop: "الإخاء", group: "الابتدائي", purchasePoints: 0 },
-    { name: "يوسف عبد المجيد الجار الله", points: 2600, loop: "الإخاء", group: "الابتدائي", purchasePoints: 0 },
-    { name: "عبد الرحمن هشام السعيد", points: 1850, loop: "الإخاء", group: "الابتدائي", purchasePoints: 0 },
-    { name: "أنس ياسر الصغير", points: 1500, loop: "الإخاء", group: "الابتدائي", purchasePoints: 0 },
-    { name: "سعود متعب الزميع", points: 1300, loop: "الإخاء", group: "الابتدائي", purchasePoints: 0 },
-    { name: "سلمان عمر الوهيبي", points: 1275, loop: "الإخاء", group: "الابتدائي", purchasePoints: 0 },
-    { name: "يوسف عبد الله بالبيد", points: 1025, loop: "الإخاء", group: "الابتدائي", purchasePoints: 0 },
-    { name: "رواف على السحيباني", points: 850, loop: "الإخاء", group: "الابتدائي", purchasePoints: 0 },
-    { name: "عبد الرحمن صلاح العيبان", points: 800, loop: "الإخاء", group: "الابتدائي", purchasePoints: 0 },
-    { name: "معاذ محمد الخضير", points: 0, loop: "الإخاء", group: "الابتدائي", purchasePoints: 0 },
-    { name: "يوسف محمد الخضير", points: 0, loop: "الإخاء", group: "الابتدائي", purchasePoints: 0 }
-];
-
-// Output details
-console.log("Total Active Students: " + studentsFullDetails.length);
-console.table(studentsFullDetails);
+            <tr><td><span class="rank-badge rank-1">1</span></td><td class="clickable-row" onclick="viewStudentDetails('عبد الكريم سليمان الدويش', 3250, '10001')">عبد الكريم سليمان الدويش</td><td><span class="points-pill"><i class="fa-solid fa-star"></i>3,250</span></td></tr>
+            <tr><td><span class="rank-badge rank-2">2</span></td><td class="clickable-row" onclick="viewStudentDetails('محمد فيصل الشهراني', 3175, '10002')">محمد فيصل الشهراني</td><td><span class="points-pill"><i class="fa-solid fa-star"></i>3,175</span></td></tr>
+            <tr><td><span class="rank-badge rank-3">3</span></td><td class="clickable-row" onclick="viewStudentDetails('عبد الرحمن علي العريني', 2850, '10003')">عبد الرحمن علي العريني</td><td><span class="points-pill"><i class="fa-solid fa-star"></i>2,850</span></td></tr>
+            <tr><td><span class="rank-badge rank-n">4</span></td><td class="clickable-row" onclick="viewStudentDetails('يزيد وليد الحمدان', 2800, '10004')">يزيد وليد الحمدان</td><td><span class="points-pill"><i class="fa-solid fa-star"></i>2,800</span></td></tr>
+            <tr><td><span class="rank-badge rank-n">5</span></td><td class="clickable-row" onclick="viewStudentDetails('عبد الملك هشام السعيد', 2800, '10005')">عبد الملك هشام السعيد</td><td><span class="points-pill"><i class="fa-solid fa-star"></i>2,800</span></td></tr>
+            <tr><td><span class="rank-badge rank-n">6</span></td><td class="clickable-row" onclick="viewStudentDetails('تميم بدر الجبر', 2550, '10006')">تميم بدر الجبر</td><td><span class="points-pill"><i class="fa-solid fa-star"></i>2,550</span></td></tr>
+            <tr><td><span class="rank-badge rank-n">7</span></td><td class="clickable-row" onclick="viewStudentDetails('عبد الله فيصل السويدي', 2500, '10007')">عبد الله فيصل السويدي</td><td><span class="points-pill"><i class="fa-solid fa-star"></i>2,500</span></td></tr>
+            <tr><td><span class="rank-badge rank-n">8</span></td><td class="clickable-row" onclick="viewStudentDetails('عبد الله وائل العريني', 2450, '10008')">عبد الله وائل العريني</td><td><span class="points-pill"><i class="fa-solid fa-star"></i>2,450</span></td></tr>
           </tbody>
         </table>
       </div>
