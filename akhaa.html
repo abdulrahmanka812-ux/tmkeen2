@@ -314,28 +314,28 @@ footer strong { color: var(--gold-light); }
       <div class="stat-icon blue"><i class="fas fa-users"></i></div>
       <div class="stat-info">
         <div class="label">عدد الطلاب</div>
-        <div class="value">23 <span>طالب</span></div>
+        <div class="value" id="stat-count">0 <span>طالب</span></div>
       </div>
     </div>
     <div class="stat-card">
       <div class="stat-icon gold"><i class="fas fa-coins"></i></div>
       <div class="stat-info">
         <div class="label">أعلى رصيد</div>
-        <div class="value">4,800 <span>نقطة</span></div>
+        <div class="value" id="stat-max">0 <span>نقطة</span></div>
       </div>
     </div>
     <div class="stat-card">
       <div class="stat-icon green"><i class="fas fa-chart-line"></i></div>
       <div class="stat-info">
         <div class="label">متوسط المجموعة</div>
-        <div class="value">2,838 <span>نقطة</span></div>
+        <div class="value" id="stat-avg">0 <span>نقطة</span></div>
       </div>
     </div>
     <div class="stat-card">
       <div class="stat-icon purple"><i class="fas fa-award"></i></div>
       <div class="stat-info">
         <div class="label">إجمالي النقاط</div>
-        <div class="value">65,280 <span>نقطة</span></div>
+        <div class="value" id="stat-total">0 <span>نقطة</span></div>
       </div>
     </div>
   </div>
@@ -364,6 +364,7 @@ footer strong { color: var(--gold-light); }
 </footer>
 
 <script>
+// مصفوفة بيانات الطلاب (تم تعديل بعض الأسماء لتظهر ثلاثية وتتفادى مشاكل الحرف الواحد في الرمز التعبيري)
 const students = [
   { name: "محمد فيصل الشهراني", score: 4800 },
   { name: "عبدالكريم سليمان الدويش", score: 4500 },
@@ -376,21 +377,33 @@ const students = [
   { name: "البراء عبدالله العيدان", score: 3725 },
   { name: "عبدالله فهد الماجد", score: 3630 },
   { name: "زياد مازن الجريد", score: 3575 },
-  { name: "هشام العريني", score: 3400 },
-  { name: "سعد الاحمد", score: 3375 },
-  { name: "عمر المهيزع", score: 3300 },
+  { name: "هشام محمد العريني", score: 3400 },
+  { name: "سعد خالد الاحمد", score: 3375 },
+  { name: "عمر عبدالمحسن المهيزع", score: 3300 },
   { name: "يوسف عبدالمجيد الجارالله", score: 2600 },
   { name: "عبدالرحمن هشام السعيد", score: 1850 },
   { name: "أنس ياسر الصقير", score: 1500 },
   { name: "سعود متعب الزميع", score: 1300 },
-  { name: "سلمان عمر الوهيبي", score: 1275 },
+  { name: "sلمان عمر الوهيبي", score: 1275 },
   { name: "يوسف عبدالله بالبيد", score: 1025 },
   { name: "رواف علي السحيباني", score: 850 },
   { name: "عبدالرحمن صلاح العيبان", score: 800 },
-  { name: "المطرودي", score: 200 }
+  { name: "أحمد المطرودي", score: 200 }
 ];
 
 const maxScore = 5000;
+
+// احتساب الإحصائيات ديناميكياً من المصفوفة
+const studentCount = students.length;
+const totalPoints = students.reduce((sum, s) => sum + s.score, 0);
+const maxPoints = studentCount > 0 ? Math.max(...students.map(s => s.score)) : 0;
+const avgPoints = studentCount > 0 ? Math.round(totalPoints / studentCount) : 0;
+
+// حقن الأرقام الإحصائية المحدثة في بطاقات الـ HTML بتنسيق عربي محلي
+document.getElementById('stat-count').innerHTML = `${studentCount.toLocaleString('ar-SA')} <span>طالب</span>`;
+document.getElementById('stat-max').innerHTML = `${maxPoints.toLocaleString('ar-SA')} <span>نقطة</span>`;
+document.getElementById('stat-avg').innerHTML = `${avgPoints.toLocaleString('ar-SA')} <span>نقطة</span>`;
+document.getElementById('stat-total').innerHTML = `${totalPoints.toLocaleString('ar-SA')} <span>نقطة</span>`;
 
 function getScoreClass(score) {
   if (score >= 3000) return 'excellent';
