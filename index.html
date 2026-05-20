@@ -986,7 +986,7 @@
             </tr>
           </thead>
           <tbody>
-        // مصفوفة البيانات الكاملة للطلاب المستخرجة من ملف PDF (الأخاء)
+       // Full students data extracted from Al-Ikhaa PDF
 const studentsFullDetails = [
     { name: "محمد فيصل الشهراني", points: 4800, loop: "الإخاء", group: "الابتدائي", purchasePoints: 0 },
     { name: "عبد الكريم سليمان الدويش", points: 4500, loop: "الإخاء", group: "الابتدائي", purchasePoints: 0 },
@@ -1014,8 +1014,8 @@ const studentsFullDetails = [
     { name: "يوسف محمد الخضير", points: 0, loop: "الإخاء", group: "الابتدائي", purchasePoints: 0 }
 ];
 
-// كود بسيط لطباعة البيانات وتفاصيلها بشكل منظم في الـ Console
-console.log(`إجمالي عدد الطلاب الفعليين: ${studentsFullDetails.length}`);
+// Output details
+console.log("Total Active Students: " + studentsFullDetails.length);
 console.table(studentsFullDetails);
           </tbody>
         </table>
