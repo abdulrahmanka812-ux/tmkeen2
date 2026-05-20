@@ -3,9 +3,9 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>Ø¨ÙÙ ØªÙÙÙÙ | ÙØ¬ÙÙØ¹Ø© Ø§ÙÙÙØ§Ø¡</title>
+<title>بنك تمكين | مجموعة النماء</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin"/>
 <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;800;900&display=swap" rel="stylesheet"/>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
 <style>
@@ -187,13 +187,13 @@ main { padding: 1.2rem 0.75rem 2rem; }
   <div class="logo-area">
     <div class="logo-icon"><i class="fas fa-university"></i></div>
     <div class="logo-text">
-      <div class="brand">Ø¨ÙÙ ØªÙÙÙÙ Ø§ÙÙØ±ÙØ²Ù</div>
-      <div class="sub">Ø§ÙÙÙØµØ© Ø§ÙØ±ÙÙÙØ© Ø§ÙØªØ¹ÙÙÙÙØ©</div>
+      <div class="brand">بنك تمكين المركزي</div>
+      <div class="sub">المنصة الرقمية التعليمية</div>
     </div>
   </div>
   <div class="group-badge">
     <i class="fas fa-seedling"></i>
-    ÙØ¬ÙÙØ¹Ø© Ø§ÙÙÙØ§Ø¡
+    مجموعة النماء
   </div>
 </header>
 <nav class="groups-nav">
@@ -206,83 +206,98 @@ main { padding: 1.2rem 0.75rem 2rem; }
     <div class="stat-card">
       <div class="stat-icon blue"><i class="fas fa-users"></i></div>
       <div class="stat-info">
-        <div class="label">Ø¹Ø¯Ø¯ Ø§ÙØ·ÙØ§Ø¨</div>
-        <div class="value">19 <span>Ø·Ø§ÙØ¨</span></div>
+        <div class="label">عدد الطلاب</div>
+        <div class="value" id="stat-count">0 <span>طالب</span></div>
       </div>
     </div>
     <div class="stat-card">
       <div class="stat-icon gold"><i class="fas fa-coins"></i></div>
       <div class="stat-info">
-        <div class="label">Ø£Ø¹ÙÙ Ø±ØµÙØ¯</div>
-        <div class="value">4,525 <span>ÙÙØ·Ø©</span></div>
+        <div class="label">أعلى رصيد</div>
+        <div class="value" id="stat-max">0 <span>نقطة</span></div>
       </div>
     </div>
     <div class="stat-card">
       <div class="stat-icon green"><i class="fas fa-chart-line"></i></div>
       <div class="stat-info">
-        <div class="label">ÙØªÙØ³Ø· Ø§ÙÙØ¬ÙÙØ¹Ø©</div>
-        <div class="value">2,508 <span>ÙÙØ·Ø©</span></div>
+        <div class="label">متوسط المجموعة</div>
+        <div class="value" id="stat-avg">0 <span>نقطة</span></div>
       </div>
     </div>
     <div class="stat-card">
       <div class="stat-icon purple"><i class="fas fa-award"></i></div>
       <div class="stat-info">
-        <div class="label">Ø¥Ø¬ÙØ§ÙÙ Ø§ÙÙÙØ§Ø·</div>
-        <div class="value">47,650 <span>ÙÙØ·Ø©</span></div>
+        <div class="label">إجمالي النقاط</div>
+        <div class="value" id="stat-total">0 <span>نقطة</span></div>
       </div>
     </div>
   </div>
   <div class="section-header">
     <i class="fas fa-trophy" style="color:var(--gold); font-size:1.1rem;"></i>
-    <span class="section-title">ØªØ±ØªÙØ¨ Ø§ÙØ·ÙØ§Ø¨ - ÙØ¬ÙÙØ¹Ø© Ø§ÙÙÙØ§Ø¡</span>
+    <span class="section-title">ترتيب الطلاب - مجموعة النماء</span>
     <div class="section-line"></div>
-    <span style="font-size:0.8rem; color:var(--text-muted); white-space:nowrap;">Ø§ÙØ­ÙÙØ© Ø§ÙØ§Ø¨ØªØ¯Ø§Ø¦ÙØ©</span>
+    <span style="font-size:0.8rem; color:var(--text-muted); white-space:nowrap;">الحلقة الابتدائية</span>
   </div>
   <div class="leaderboard-container">
     <div class="leaderboard-header">
-      <span>Ø§ÙØªØ±ØªÙØ¨</span>
-      <span>Ø§ÙØ·Ø§ÙØ¨</span>
-      <span>Ø§ÙØªÙØ¯Ù</span>
-      <span>Ø§ÙØ±ØµÙØ¯</span>
+      <span>الترتيب</span>
+      <span>الطالب</span>
+      <span>التقدم</span>
+      <span>الرصيد</span>
     </div>
     <div id="students-list"></div>
   </div>
 </main>
 <footer>
-  <strong>Ø¨ÙÙ ØªÙÙÙÙ Ø§ÙÙØ±ÙØ²Ù</strong> &mdash; ÙØ¬ÙÙØ¹Ø© Ø§ÙÙÙØ§Ø¡ &mdash; Ø§ÙØ­ÙÙØ© Ø§ÙØ§Ø¨ØªØ¯Ø§Ø¦ÙØ© &mdash; Ø¬ÙÙØ¹ Ø§ÙØ­ÙÙÙ ÙØ­ÙÙØ¸Ø©
+  <strong>بنك تمكين المركزي</strong> &mdash; مجموعة النماء &mdash; الحلقة الابتدائية &mdash; جميع الحقوق محفوظة
 </footer>
 <script>
+// مصفوفة الطلاب بعد إصلاح الرموز المشوهة وتنقيح الأسماء الثنائية
 const students = [
-  { name: "Ø³Ø¹ÙØ¯ Ø¹Ø¨Ø¯Ø§ÙÙÙ Ø§ÙØºÙØªÙØ®", score: 4525 },
-  { name: "ØªÙÙÙ Ø¨Ù Ø¨Ø¯Ø± Ø§ÙÙØ´ÙØ§Ù", score: 3575 },
-  { name: "Ø±ÙØ§Ù Ø£Ø­ÙØ¯ Ø§ÙØ³Ø¹Ø¯", score: 3525 },
-  { name: "ÙÙØ¯ ÙØ­ÙØ¯ Ø§ÙØ®Ø¶ÙØ±", score: 3525 },
-  { name: "Ø§ÙÙØ§Ø³ Ø³ÙÙÙØ§Ù Ø§ÙÙØ§ÙØ¹", score: 3500 },
-  { name: "Ø£Ø­ÙØ¯ Ø¹Ø¨Ø¯Ø§ÙØ¹Ø²ÙØ² Ø§ÙØ­Ø§ØªÙ", score: 3050 },
-  { name: "ÙÙØ¯ ØµØ§ÙØ­ ÙÙØ¯ Ø§ÙØ¨Ø§ÙÙÙ", score: 2900 },
-  { name: "ÙÙØ« Ø²ÙØ§Ø¯ Ø§ÙØ³ÙÙØ¯Ø§Ø¡", score: 2725 },
-  { name: "Ø¹ÙØ± Ø§ÙØ£Ø­ÙØ¯", score: 2625 },
-  { name: "Ø³ÙØ·Ø§Ù Ø¹Ø¨Ø¯Ø§ÙÙØ¬ÙØ¯ Ø§ÙØ­Ø³ÙÙ", score: 2600 },
-  { name: "ÙØ´Ø§Ø±Ù Ø¹Ø¨Ø¯Ø§ÙØ¹Ø²ÙØ² Ø§ÙÙØ«ÙØ§Ù", score: 2500 },
-  { name: "ÙØ§Ø±Ø³ ØµØ§ÙØ­ Ø§ÙØµØºÙØ±", score: 2450 },
-  { name: "Ø¹Ø¨Ø¯Ø§ÙØ³ÙØ§Ù Ø£Ø­ÙØ¯ Ø§ÙØ³Ø¨ÙØ§Ù", score: 2350 },
-  { name: "Ø¨Ø¯Ø± Ø§ÙØ¹Ø¨ÙØ¯", score: 2050 },
-  { name: "ÙÙØ¯ Ø§ÙÙØ­ÙØ¯Ù", score: 2000 },
-  { name: "ØªØ±ÙÙ Ø¹ÙØ§Ø¯ Ø§ÙØ¹ÙØ¯Ø§Ù", score: 1300 },
-  { name: "Ø¹Ø¨Ø¯Ø§ÙÙÙ Ø¹Ø¨Ø¯Ø§ÙØ±Ø­ÙÙ Ø§ÙÙÙØ¯Ù", score: 1200 },
-  { name: "ÙØ­ÙØ¯ Ø§ÙÙÙÙØ¨", score: 1050 },
-  { name: "ÙØ§Ø±Ø³ Ø­Ø³Ù Ø§ÙØ²ÙØ±Ø§ÙÙ", score: 200 }
+  { name: "سعود عبدالله الغنتوخ", score: 4525 },
+  { name: "تميم بن بدر النشوان", score: 3575 },
+  { name: "ريان أحمد السعد", score: 3525 },
+  { name: "فهد محمد الخضير", score: 3525 },
+  { name: "الياس سليمان النافع", score: 3500 },
+  { name: "أحمد عبدالعزيز الحاتم", score: 3050 },
+  { name: "فهد صالح الباهلي", score: 2900 },
+  { name: "ليث زياد السويداء", score: 2725 },
+  { name: "عمر خالد الأحمد", score: 2625 },
+  { name: "سلطان عبدالمجيد الحسين", score: 2600 },
+  { name: "مشاري عبدالعزيز الوثلان", score: 2500 },
+  { name: "فارس صالح الصغير", score: 2450 },
+  { name: "عبدالسلام أحمد السبهان", score: 2350 },
+  { name: "بدر محمد العبيد", score: 2050 },
+  { name: "فهد عبدالله المحمدي", score: 2000 },
+  { name: "تركي عماد العيدان", score: 1300 },
+  { name: "عبدالله عبدالرحمن الهندي", score: 1200 },
+  { name: "محمد ناصر الوهيب", score: 1050 },
+  { name: "فارس حسن الزهراني", score: 200 }
 ];
+
 const maxScore = 5000;
+
+// احتساب الإحصائيات ديناميكياً من المصفوفة مباشرة لتجنب الأخطاء اليدوية
+const studentCount = students.length;
+const totalPoints = students.reduce((sum, s) => sum + s.score, 0);
+const maxPoints = studentCount > 0 ? Math.max(...students.map(s => s.score)) : 0;
+const avgPoints = studentCount > 0 ? Math.round(totalPoints / studentCount) : 0;
+
+// حقن الإحصائيات ديناميكياً بالتنسيق العربي الصحيح
+document.getElementById('stat-count').innerHTML = `${studentCount.toLocaleString('ar-SA')} <span>طالب</span>`;
+document.getElementById('stat-max').innerHTML = `${maxPoints.toLocaleString('ar-SA')} <span>نقطة</span>`;
+document.getElementById('stat-avg').innerHTML = `${avgPoints.toLocaleString('ar-SA')} <span>نقطة</span>`;
+document.getElementById('stat-total').innerHTML = `${totalPoints.toLocaleString('ar-SA')} <span>نقطة</span>`;
+
 function getScoreClass(score) {
   if (score >= 3000) return 'excellent';
   if (score >= 1500) return 'good';
   return 'fair';
 }
 function getScoreLabel(score) {
-  if (score >= 3000) return 'ÙÙØªØ§Ø²';
-  if (score >= 1500) return 'Ø¬ÙØ¯';
-  return 'ÙØ­ØªØ§Ø¬ ØªØ­Ø³ÙÙ';
+  if (score >= 3000) return 'ممتاز';
+  if (score >= 1500) return 'جيد';
+  return 'يحتاج تحسين';
 }
 function getProgressColor(score) {
   if (score >= 3000) return 'linear-gradient(90deg, #22c55e, #4ade80)';
@@ -293,6 +308,7 @@ function getInitials(name) {
   const parts = name.trim().split(' ');
   return parts.length >= 2 ? parts[0][0] + parts[1][0] : parts[0][0];
 }
+
 const container = document.getElementById('students-list');
 students.forEach((student, index) => {
   const rank = index + 1;
@@ -324,7 +340,7 @@ students.forEach((student, index) => {
     '</div>' +
     '<div class="score-area">' +
       '<span class="score-value">' + student.score.toLocaleString('ar-SA') + '</span>' +
-      '<span class="score-label">ÙÙØ·Ø©</span>' +
+      '<span class="score-label">نقطة</span>' +
     '</div>' +
   '</div>';
 });
