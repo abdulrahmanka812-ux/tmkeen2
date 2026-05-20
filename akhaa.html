@@ -364,7 +364,7 @@ footer strong { color: var(--gold-light); }
 </footer>
 
 <script>
-// مصفوفة بيانات الطلاب (تم تعديل بعض الأسماء لتظهر ثلاثية وتتفادى مشاكل الحرف الواحد في الرمز التعبيري)
+// مصفوفة بيانات الطلاب
 const students = [
   { name: "محمد فيصل الشهراني", score: 4800 },
   { name: "عبدالكريم سليمان الدويش", score: 4500 },
@@ -384,7 +384,7 @@ const students = [
   { name: "عبدالرحمن هشام السعيد", score: 1850 },
   { name: "أنس ياسر الصقير", score: 1500 },
   { name: "سعود متعب الزميع", score: 1300 },
-  { name: "sلمان عمر الوهيبي", score: 1275 },
+  { name: "سلمان عمر الوهيبي", score: 1275 },
   { name: "يوسف عبدالله بالبيد", score: 1025 },
   { name: "رواف علي السحيباني", score: 850 },
   { name: "عبدالرحمن صلاح العيبان", score: 800 },
@@ -393,7 +393,7 @@ const students = [
 
 const maxScore = 5000;
 
-// احتساب الإحصائيات ديناميكياً من المصفوفة
+// احتساب الإحصائيات ديناميكياً من المجموعة
 const studentCount = students.length;
 const totalPoints = students.reduce((sum, s) => sum + s.score, 0);
 const maxPoints = studentCount > 0 ? Math.max(...students.map(s => s.score)) : 0;
