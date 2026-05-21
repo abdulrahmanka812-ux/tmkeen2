@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>بنك تمكين | الجوائز</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;800;900&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+:root {
+  --navy: #0f2447; --navy-mid: #1a3a6b; --navy-light: #1e4d8c;
+  --gold: #c9a227; --gold-light: #e8c04a; --gold-pale: #fdf3d7;
+  --white: #fff; --bg: #f0f4fb; --card-bg: rgba(255,255,255,0.96);
+  --text-main: #0f2447; --text-muted: #64748b; --border: rgba(201,162,39,0.18);
+  --shadow-sm: 0 2px 12px rgba(15,36,71,0.08); --shadow-md: 0 8px 30px rgba(15,36,71,0.15);
+  --shadow-lg: 0 20px 60px rgba(15,36,71,0.22); --radius: 20px;
+}
+html { scroll-behavior: smooth; }
+body { font-family: "Tajawal", sans-serif; background: linear-gradient(160deg,#e4ecf7,#f0f4fb 50%,#e8eef8); color: var(--navy); min-height: 100vh; direction: rtl; display: flex; flex-direction: column; }
+header { background: linear-gradient(135deg,var(--navy),var(--navy-mid) 60%,var(--navy-light)); padding: 0 2rem; height: 74px; display: flex; align-items: center; justify-content: space-between; position: sticky; top: 0; z-index: 100; box-shadow: 0 4px 24px rgba(15,36,71,.4); border-bottom: 3px solid var(--gold); flex-shrink: 0; }
+header::before { content:""; position:absolute; inset:0; background:url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none'%3E%3Cg fill='%23c9a227' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E"); pointer-events:none; }
+.logo-area { display:flex; align-items:center; gap:.9rem; z-index:1; }
+.logo-icon { width:48px; height:48px; background:linear-gradient(135deg,var(--gold),var(--gold-light)); border-radius:14px; display:flex; align-items:center; justify-content:center; font-size:1.5rem; color:var(--navy); box-shadow:0 4px 16px rgba(201,162,39,.45); }
+.logo-text .brand { color:var(--gold-light); font-size:1.15rem; font-weight:800; }
+.logo-text .sub { color:rgba(255,255,255,.6); font-size:.68rem; }
+.header-badge { z-index:1; background:rgba(201,162,39,.15); border:1px solid rgba(201,162,39,.35); border-radius:30px; padding:.35rem .9rem; color:var(--gold-light); font-size:.78rem; display:flex; align-items:center; gap:.5rem; }
+.pulse-dot { width:8px; height:8px; background:#4ade80; border-radius:50%; animation:pulse 2s infinite; }
+@keyframes pulse { 0%,100%{box-shadow:0 0 0 0 rgba(74,222,128,.6)} 50%{box-shadow:0 0 0 6px rgba(74,222,128,0)} }
+/* MAIN NAV */
+.main-nav { background: linear-gradient(135deg, #0a1c38 0%, #152d55 100%); display:flex; justify-content:center; align-items:center; gap:.3rem; padding:.5rem 1rem; border-bottom:1px solid rgba(201,162,39,.25); flex-wrap:wrap; }
+.nav-link { display:flex; align-items:center; gap:.45rem; color:rgba(255,255,255,.72); text-decoration:none; font-family:'Tajawal',sans-serif; font-size:.88rem; font-weight:600; padding:.45rem 1.1rem; border-radius:50px; transition:all .3s ease; border:1px solid transparent; }
+.nav-link:hover { color:#e8c04a; background:rgba(201,162,39,.12); border-color:rgba(201,162,39,.3); }
+.nav-link.active { background:linear-gradient(135deg,#c9a227,#e8c04a); color:#0f2447; border-color:transparent; box-shadow:0 4px 14px rgba(201,162,39,.4); font-weight:700; }
+.nav-divider { width:1px; height:20px; background:rgba(201,162,39,.2); margin:0 .2rem; }
+/* PAGE */
+.page-header { text-align:center; padding:2.5rem 1.5rem 1.5rem; }
+.page-badge { display:inline-flex; align-items:center; gap:.5rem; background:var(--gold-pale); border:1.5px solid rgba(201,162,39,.35); color:var(--gold); font-size:.85rem; font-weight:700; padding:.45rem 1.2rem; border-radius:30px; margin-bottom:1rem; }
+.page-header h1 { font-size:2rem; font-weight:900; color:var(--navy); margin-bottom:.6rem; }
+.page-header h1 span { color:var(--gold); }
+.container { max-width:1100px; margin:0 auto; padding:0 1.5rem 4rem; flex:1; }
+.section-head { display:flex; align-items:center; gap:.7rem; margin-bottom:1.4rem; }
+.section-head h2 { font-size:1.3rem; font-weight:800; color:var(--navy); }
+.section-head i { color:var(--gold); font-size:1.1rem; }
+.section-line { flex:1; height:2px; background:linear-gradient(90deg,rgba(201,162,39,.3),transparent); border-radius:2px; }
+/* AWARDS GRID */
+.awards-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:1.4rem; margin-bottom:2.5rem; }
+.award-card { background:var(--card-bg); border-radius:var(--radius); overflow:hidden; box-shadow:var(--shadow-sm); border:1px solid var(--border); transition:all .35s; }
+.award-card:hover { transform:translateY(-5px); box-shadow:var(--shadow-lg); border-color:rgba(201,162,39,.4); }
+.award-card-top { padding:2rem 1.6rem 1.2rem; text-align:center; }
+.award-emoji { font-size:3.5rem; margin-bottom:.8rem; display:block; }
+.award-title { font-size:1.1rem; font-weight:800; color:var(--navy); margin-bottom:.4rem; }
+.award-desc { font-size:.82rem; color:var(--text-muted); line-height:1.6; }
+.award-card-bottom { padding:1rem 1.6rem; background:linear-gradient(135deg,var(--navy),var(--navy-mid)); display:flex; align-items:center; justify-content:space-between; }
+.award-winner { color:var(--gold-light); font-size:.85rem; font-weight:700; }
+.award-pts { background:rgba(201,162,39,.2); color:var(--gold-light); padding:.25rem .8rem; border-radius:20px; font-size:.8rem; font-weight:700; }
+/* CHAMPIONS TABLE */
+.champions-table { background:var(--card-bg); border-radius:var(--radius); overflow:hidden; box-shadow:var(--shadow-sm); border:1px solid var(--border); margin-bottom:2.5rem; }
+.ct-header { display:grid; grid-template-columns:60px 1fr 130px 120px; padding:.9rem 1.4rem; background:linear-gradient(135deg,var(--navy),var(--navy-mid)); color:var(--gold-light); font-size:.82rem; font-weight:700; gap:1rem; }
+.ct-row { display:grid; grid-template-columns:60px 1fr 130px 120px; padding:.9rem 1.4rem; align-items:center; border-bottom:1px solid rgba(201,162,39,.07); gap:1rem; transition:all .3s; }
+.ct-row:last-child { border-bottom:none; }
+.ct-row:hover { background:rgba(201,162,39,.04); }
+.rank-badge { width:36px; height:36px; border-radius:50%; display:flex; align-items:center; justify-content:center; font-weight:800; font-size:1rem; }
+.rb1 { background:#fef3c7; color:#b45309; }
+.rb2 { background:#f1f5f9; color:#475569; }
+.rb3 { background:#fde8d8; color:#92400e; }
+.student-info .name { font-size:.9rem; font-weight:700; color:var(--navy); }
+.student-info .group { font-size:.75rem; color:var(--text-muted); }
+.award-tag { display:inline-flex; align-items:center; gap:.3rem; background:var(--gold-pale); color:var(--gold); padding:.25rem .8rem; border-radius:20px; font-size:.8rem; font-weight:700; }
+.pts-pill { display:inline-flex; align-items:center; gap:.35rem; background:var(--gold-pale); color:var(--gold); font-weight:700; font-size:.82rem; padding:.3rem .75rem; border-radius:20px; }
+footer { text-align:center; padding:1.5rem; color:var(--text-muted); font-size:.8rem; border-top:1px solid rgba(201,162,39,.15); background:rgba(255,255,255,.6); }
+@media(max-width:768px){ .ct-header,.ct-row{grid-template-columns:50px 1fr 100px} .ct-header span:nth-child(3),.ct-row>*:nth-child(3){display:none} }
+</style>
+</head>
+<body>
+<header>
+  <div class="logo-area">
+    <div class="logo-icon"><i class="fas fa-university"></i></div>
+    <div class="logo-text">
+      <div class="brand">بنك تمكين المركزي</div>
+      <div class="sub">المنصة الرقمية التعليمية</div>
+    </div>
+  </div>
+  <div class="header-badge"><div class="pulse-dot"></div> مباشر</div>
+</header>
+<nav class="main-nav">
+  <a href="index.html" class="nav-link"><i class="fas fa-home"></i><span>الرئيسية</span></a>
+  <a href="borsa.html" class="nav-link"><i class="fas fa-chart-line"></i><span>البورصة</span></a>
+  <a href="about.html" class="nav-link"><i class="fas fa-info-circle"></i><span>عن البنك</span></a>
+  <div class="nav-divider"></div>
+  <a href="nashat.html" class="nav-link"><i class="fas fa-bolt"></i><span>النشاط</span></a>
+  <a href="jawaze.html" class="nav-link active"><i class="fas fa-trophy"></i><span>الجوائز</span></a>
+  <div class="nav-divider"></div>
+  <a href="akhaa.html" class="nav-link"><i class="fas fa-users"></i><span>الأخاء</span></a>
+  <a href="ataa.html" class="nav-link"><i class="fas fa-hand-holding-heart"></i><span>العطاء</span></a>
+  <a href="namaa.html" class="nav-link"><i class="fas fa-seedling"></i><span>النماء</span></a>
+</nav>
+<div class="page-header">
+  <div class="page-badge"><i class="fas fa-trophy"></i> لوحة الجوائز</div>
+  <h1>جوائز <span>تمكين</span></h1>
+  <p style="color:var(--text-muted);font-size:.95rem;max-width:480px;margin:0 auto;line-height:1.75">تكريم المتميزين وأصحاب الإنجازات في بنك تمكين المركزي</p>
+</div>
+<div class="container">
+  <div class="section-head">
+    <i class="fas fa-crown"></i>
+    <h2>جوائز الفصل الدراسي</h2>
+    <div class="section-line"></div>
+  </div>
+  <div class="awards-grid">
+    <div class="award-card">
+      <div class="award-card-top">
+        <span class="award-emoji">🏆</span>
+        <div class="award-title">طالب الفصل</div>
+        <div class="award-desc">يُمنح لأعلى طالب في رصيد النقاط خلال الفصل الدراسي كاملاً</div>
+      </div>
+      <div class="award-card-bottom">
+        <div class="award-winner"><i class="fas fa-user"></i> عبدالله السالم</div>
+        <div class="award-pts">4,800 نقطة</div>
+      </div>
+    </div>
+    <div class="award-card">
+      <div class="award-card-top">
+        <span class="award-emoji">🌟</span>
+        <div class="award-title">أكثر تحسناً</div>
+        <div class="award-desc">يُمنح للطالب الذي حقق أكبر قفزة في رصيده خلال الشهر</div>
+      </div>
+      <div class="award-card-bottom">
+        <div class="award-winner"><i class="fas fa-user"></i> وليد الشهري</div>
+        <div class="award-pts">+1,200 نقطة</div>
+      </div>
+    </div>
+    <div class="award-card">
+      <div class="award-card-top">
+        <span class="award-emoji">💡</span>
+        <div class="award-title">أكثر إبداعاً</div>
+        <div class="award-desc">يُمنح للطالب الذي قدّم أكثر الأفكار إبداعاً في الأنشطة</div>
+      </div>
+      <div class="award-card-bottom">
+        <div class="award-winner"><i class="fas fa-user"></i> سعود الراشد</div>
+        <div class="award-pts">3,950 نقطة</div>
+      </div>
+    </div>
+    <div class="award-card">
+      <div class="award-card-top">
+        <span class="award-emoji">🤝</span>
+        <div class="award-title">روح الفريق</div>
+        <div class="award-desc">يُمنح للطالب الأكثر تعاوناً ومساعدة لزملائه</div>
+      </div>
+      <div class="award-card-bottom">
+        <div class="award-winner"><i class="fas fa-user"></i> خالد النعيمي</div>
+        <div class="award-pts">2,400 نقطة</div>
+      </div>
+    </div>
+    <div class="award-card">
+      <div class="award-card-top">
+        <span class="award-emoji">📚</span>
+        <div class="award-title">المثابر</div>
+        <div class="award-desc">يُمنح للطالب الأكثر انتظاماً في أداء واجباته</div>
+      </div>
+      <div class="award-card-bottom">
+        <div class="award-winner"><i class="fas fa-user"></i> ياسر الغامدي</div>
+        <div class="award-pts">2,800 نقطة</div>
+      </div>
+    </div>
+    <div class="award-card">
+      <div class="award-card-top">
+        <span class="award-emoji">🎯</span>
+        <div class="award-title">أفضل مجموعة</div>
+        <div class="award-desc">المجموعة الأعلى في مجموع النقاط هذا الفصل</div>
+      </div>
+      <div class="award-card-bottom">
+        <div class="award-winner"><i class="fas fa-users"></i> مجموعة الأخاء</div>
+        <div class="award-pts">إجمالي: 63,319</div>
+      </div>
+    </div>
+  </div>
+  <div class="section-head">
+    <i class="fas fa-medal"></i>
+    <h2>قاعة المشاهير</h2>
+    <div class="section-line"></div>
+  </div>
+  <div class="champions-table">
+    <div class="ct-header">
+      <span>المركز</span>
+      <span>الطالب</span>
+      <span>الجائزة</span>
+      <span>النقاط</span>
+    </div>
+    <div class="ct-row">
+      <div class="rank-badge rb1">🥇</div>
+      <div class="student-info"><div class="name">عبدالله السالم</div><div class="group">مجموعة الأخاء</div></div>
+      <div class="award-tag"><i class="fas fa-trophy"></i> طالب الفصل</div>
+      <div class="pts-pill"><i class="fas fa-star"></i>4,800</div>
+    </div>
+    <div class="ct-row">
+      <div class="rank-badge rb2">🥈</div>
+      <div class="student-info"><div class="name">محمد العمري</div><div class="group">مجموعة الأخاء</div></div>
+      <div class="award-tag"><i class="fas fa-star"></i> المتميز</div>
+      <div class="pts-pill"><i class="fas fa-star"></i>4,200</div>
+    </div>
+    <div class="ct-row">
+      <div class="rank-badge rb3">🥉</div>
+      <div class="student-info"><div class="name">سعود الراشد</div><div class="group">مجموعة الأخاء</div></div>
+      <div class="award-tag"><i class="fas fa-lightbulb"></i> أكثر إبداعاً</div>
+      <div class="pts-pill"><i class="fas fa-star"></i>3,950</div>
+    </div>
+    <div class="ct-row">
+      <div class="rank-badge" style="background:#f0fdf4;color:#15803d;font-size:.85rem">4</div>
+      <div class="student-info"><div class="name">وليد الشهري</div><div class="group">مجموعة النماء</div></div>
+      <div class="award-tag"><i class="fas fa-chart-line"></i> أكثر تحسناً</div>
+      <div class="pts-pill"><i class="fas fa-star"></i>3,100</div>
+    </div>
+    <div class="ct-row">
+      <div class="rank-badge" style="background:#f0fdf4;color:#15803d;font-size:.85rem">5</div>
+      <div class="student-info"><div class="name">خالد النعيمي</div><div class="group">مجموعة العطاء</div></div>
+      <div class="award-tag"><i class="fas fa-hands"></i> روح الفريق</div>
+      <div class="pts-pill"><i class="fas fa-star"></i>2,400</div>
+    </div>
+  </div>
+</div>
+<footer>
+  <strong>بنك تمكين المركزي</strong> &mdash; الجوائز &mdash; جميع الحقوق محفوظة
+</footer>
+</body>
+</html>
