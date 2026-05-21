@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>بنك تمكين المركزي</title>
+<title>بنك تمكين | مجموعة الأخاء</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
 <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;800;900&display=swap" rel="stylesheet"/>
@@ -11,99 +11,290 @@
 <style>
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 :root {
-  --navy: #0f2447; --navy-mid: #1a3a6b; --navy-light: #1e4d8c;
-  --gold: #c9a227; --gold-light: #e8c04a; --gold-pale: #fdf3d7;
-  --white: #fff; --bg: #f0f4fb; --card-bg: rgba(255,255,255,0.96);
-  --text-main: #0f2447; --text-muted: #64748b; --border: rgba(201,162,39,0.18);
-  --shadow-sm: 0 2px 12px rgba(15,36,71,0.08); --shadow-md: 0 8px 30px rgba(15,36,71,0.15);
-  --shadow-lg: 0 20px 60px rgba(15,36,71,0.22);
-  --radius: 20px; --transition: all 0.35s cubic-bezier(0.4,0,0.2,1);
+  --navy: #0f2447;
+  --navy-mid: #1a3a6b;
+  --navy-light: #1e4d8c;
+  --gold: #c9a227;
+  --gold-light: #e8c04a;
+  --gold-pale: #fdf3d7;
+  --white: #ffffff;
+  --bg: #f0f4fb;
+  --card-bg: rgba(255,255,255,0.95);
+  --text-main: #0f2447;
+  --text-muted: #64748b;
+  --shadow-sm: 0 2px 12px rgba(15,36,71,0.08);
+  --shadow-md: 0 8px 30px rgba(15,36,71,0.13);
+  --shadow-lg: 0 20px 60px rgba(15,36,71,0.20);
+  --radius: 18px;
+  --radius-sm: 10px;
+  --transition: all 0.35s cubic-bezier(0.4,0,0.2,1);
+  --green: #22c55e;
+  --yellow: #f59e0b;
+  --red: #ef4444;
 }
-html { scroll-behavior: smooth; }
-body { font-family: "Tajawal", sans-serif; background: linear-gradient(160deg,#e4ecf7,#f0f4fb 50%,#e8eef8); color: var(--navy); min-height: 100vh; direction: rtl; display: flex; flex-direction: column; }
+html { scroll-behavior: smooth; height: 100%; }
+body {
+  font-family: 'Tajawal', sans-serif;
+  background: linear-gradient(135deg, #e8eef8 0%, #f0f4fb 50%, #e8eef8 100%);
+  color: var(--text-main);
+  min-height: 100vh;
+  direction: rtl;
+  display: flex;
+  flex-direction: column;
+}
+
 /* HEADER */
-header { background: linear-gradient(135deg,var(--navy),var(--navy-mid) 60%,var(--navy-light)); padding: 0 2rem; height: 74px; display: flex; align-items: center; justify-content: space-between; position: sticky; top: 0; z-index: 100; box-shadow: 0 4px 24px rgba(15,36,71,.4); border-bottom: 3px solid var(--gold); flex-shrink: 0; }
-header::before { content:""; position:absolute; inset:0; background:url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none'%3E%3Cg fill='%23c9a227' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E"); pointer-events:none; }
-.logo-area { display:flex; align-items:center; gap:.9rem; z-index:1; }
-.logo-icon { width:48px; height:48px; background:linear-gradient(135deg,var(--gold),var(--gold-light)); border-radius:14px; display:flex; align-items:center; justify-content:center; font-size:1.5rem; color:var(--navy); box-shadow:0 4px 16px rgba(201,162,39,.45); }
-.logo-text .brand { color:var(--gold-light); font-size:1.15rem; font-weight:800; }
-.logo-text .sub { color:rgba(255,255,255,.6); font-size:.68rem; }
-.header-badge { z-index:1; background:rgba(201,162,39,.15); border:1px solid rgba(201,162,39,.35); border-radius:30px; padding:.35rem .9rem; color:var(--gold-light); font-size:.78rem; display:flex; align-items:center; gap:.5rem; }
-.pulse-dot { width:8px; height:8px; background:#4ade80; border-radius:50%; animation:pulse 2s infinite; }
-@keyframes pulse { 0%,100%{box-shadow:0 0 0 0 rgba(74,222,128,.6)} 50%{box-shadow:0 0 0 6px rgba(74,222,128,0)} }
+header {
+  background: linear-gradient(135deg, var(--navy) 0%, var(--navy-mid) 60%, var(--navy-light) 100%);
+  padding: 0 2rem;
+  height: 76px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  box-shadow: 0 4px 24px rgba(15,36,71,0.35);
+  border-bottom: 2.5px solid var(--gold);
+  flex-shrink: 0;
+}
+header::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23c9a227' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+  pointer-events: none;
+}
+.logo-area {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  z-index: 1;
+}
+.logo-icon {
+  width: 46px; height: 46px;
+  background: linear-gradient(135deg, var(--gold) 0%, var(--gold-light) 100%);
+  border-radius: 12px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1.4rem; color: var(--navy);
+  box-shadow: 0 4px 16px rgba(201,162,39,0.4);
+}
+.logo-text .brand { color: var(--gold-light); font-size: 1.15rem; font-weight: 800; }
+.logo-text .sub { color: rgba(255,255,255,0.6); font-size: 0.7rem; }
+.group-badge {
+  background: linear-gradient(135deg, var(--gold) 0%, var(--gold-light) 100%);
+  color: var(--navy);
+  padding: 0.4rem 1.2rem;
+  border-radius: 50px;
+  font-weight: 800;
+  font-size: 0.95rem;
+  display: flex; align-items: center; gap: 0.4rem;
+  z-index: 1;
+  box-shadow: 0 4px 16px rgba(201,162,39,0.35);
+}
+
+/* MAIN */
+main {
+  flex: 1;
+  padding: 2rem 1.5rem 3rem;
+  max-width: 1100px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+/* STATS BAR */
+.stats-bar {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1.2rem;
+  margin-bottom: 2rem;
+}
+.stat-card {
+  background: var(--card-bg);
+  border-radius: var(--radius);
+  padding: 1.4rem 1.6rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  box-shadow: var(--shadow-sm);
+  border: 1px solid rgba(201,162,39,0.12);
+  transition: var(--transition);
+  position: relative;
+  overflow: hidden;
+}
+.stat-card::before {
+  content: '';
+  position: absolute;
+  top: 0; right: 0;
+  width: 4px; height: 100%;
+  background: linear-gradient(180deg, var(--gold) 0%, var(--gold-light) 100%);
+}
+.stat-card:hover { transform: translateY(-3px); box-shadow: var(--shadow-md); }
+.stat-icon {
+  width: 52px; height: 52px;
+  border-radius: 14px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1.3rem; flex-shrink: 0;
+}
+.stat-icon.blue { background: rgba(30,77,140,0.1); color: var(--navy-light); }
+.stat-icon.gold { background: rgba(201,162,39,0.12); color: var(--gold); }
+.stat-icon.green { background: rgba(34,197,94,0.1); color: var(--green); }
+.stat-icon.purple { background: rgba(139,92,246,0.1); color: #8b5cf6; }
+.stat-info .label { font-size: 0.78rem; color: var(--text-muted); margin-bottom: 0.2rem; }
+.stat-info .value { font-size: 1.6rem; font-weight: 800; color: var(--text-main); line-height: 1; }
+.stat-info .value span { font-size: 0.85rem; font-weight: 500; color: var(--text-muted); }
+
+/* SECTION TITLE */
+.section-header {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 1.5rem;
+}
+.section-title {
+  font-size: 1.3rem;
+  font-weight: 800;
+  color: var(--navy);
+}
+.section-line {
+  flex: 1;
+  height: 2px;
+  background: linear-gradient(90deg, rgba(201,162,39,0.4) 0%, transparent 100%);
+}
+
+/* LEADERBOARD */
+.leaderboard-container {
+  background: var(--card-bg);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-md);
+  overflow: hidden;
+  border: 1px solid rgba(201,162,39,0.12);
+  margin-bottom: 2rem;
+}
+.leaderboard-header {
+  background: linear-gradient(135deg, var(--navy) 0%, var(--navy-mid) 100%);
+  padding: 1rem 1.5rem;
+  display: grid;
+  grid-template-columns: 60px 1fr 130px 110px;
+  gap: 0.5rem;
+  align-items: center;
+}
+.leaderboard-header span {
+  color: var(--gold-light);
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+.student-row {
+  display: grid;
+  grid-template-columns: 60px 1fr 130px 110px;
+  gap: 0.5rem;
+  align-items: center;
+  padding: 1rem 1.5rem;
+  border-bottom: 1px solid rgba(201,162,39,0.08);
+  transition: var(--transition);
+  position: relative;
+}
+.student-row:last-child { border-bottom: none; }
+.student-row:hover { background: rgba(201,162,39,0.04); }
+.student-row.rank-1 { background: linear-gradient(135deg, rgba(201,162,39,0.12) 0%, rgba(232,192,74,0.06) 100%); }
+.student-row.rank-2 { background: linear-gradient(135deg, rgba(192,192,192,0.10) 0%, transparent 100%); }
+.student-row.rank-3 { background: linear-gradient(135deg, rgba(205,127,50,0.10) 0%, transparent 100%); }
+
+/* RANK BADGE */
+.rank-badge {
+  width: 36px; height: 36px;
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-weight: 800; font-size: 0.9rem;
+  flex-shrink: 0;
+}
+.rank-1 .rank-badge { background: linear-gradient(135deg, #f59e0b 0%, #fbbf24 100%); color: white; box-shadow: 0 4px 12px rgba(245,158,11,0.4); }
+.rank-2 .rank-badge { background: linear-gradient(135deg, #94a3b8 0%, #cbd5e1 100%); color: white; box-shadow: 0 4px 12px rgba(148,163,184,0.4); }
+.rank-3 .rank-badge { background: linear-gradient(135deg, #b45309 0%, #d97706 100%); color: white; box-shadow: 0 4px 12px rgba(180,83,9,0.4); }
+.rank-badge.normal { background: rgba(15,36,71,0.07); color: var(--text-muted); font-size: 0.85rem; }
+
+/* STUDENT NAME */
+.student-name-area { display: flex; align-items: center; gap: 0.75rem; min-width: 0; }
+.student-avatar {
+  width: 38px; height: 38px;
+  border-radius: 10px;
+  background: linear-gradient(135deg, var(--navy-mid) 0%, var(--navy-light) 100%);
+  display: flex; align-items: center; justify-content: center;
+  color: white; font-weight: 700; font-size: 0.85rem;
+  flex-shrink: 0;
+}
+.student-name { font-weight: 600; font-size: 0.95rem; color: var(--text-main); }
+
+/* PROGRESS BAR */
+.progress-area { display: flex; align-items: center; gap: 0.6rem; }
+.progress-bar {
+  height: 8px;
+  background: rgba(15,36,71,0.08);
+  border-radius: 50px;
+  overflow: hidden;
+  flex: 1;
+}
+.progress-fill {
+  height: 100%;
+  border-radius: 50px;
+  transition: width 1s ease;
+}
+.progress-text { font-size: 0.75rem; color: var(--text-muted); white-space: nowrap; }
+
+/* SCORE */
+.score-area { text-align: center; }
+.score-value { font-size: 1.2rem; font-weight: 800; color: var(--navy); display: block; }
+.score-label { font-size: 0.7rem; color: var(--text-muted); }
+.score-pill {
+  display: inline-flex; align-items: center; gap: 0.3rem;
+  padding: 0.25rem 0.8rem;
+  border-radius: 50px;
+  font-size: 0.75rem; font-weight: 600;
+}
+.score-pill.excellent { background: rgba(34,197,94,0.12); color: #16a34a; }
+.score-pill.good { background: rgba(245,158,11,0.12); color: #d97706; }
+.score-pill.fair { background: rgba(239,68,68,0.12); color: #dc2626; }
+
+/* FOOTER */
+footer {
+  background: var(--navy);
+  color: rgba(255,255,255,0.5);
+  text-align: center;
+  padding: 1rem;
+  font-size: 0.78rem;
+  border-top: 2px solid var(--gold);
+  flex-shrink: 0;
+}
+footer strong { color: var(--gold-light); }
+
+/* RESPONSIVE */
+@media (max-width: 640px) {
+  .leaderboard-header, .student-row {
+    grid-template-columns: 48px 1fr 80px;
+  }
+  .progress-area { display: none; }
+  header { padding: 0 1rem; }
+  main { padding: 1.2rem 0.75rem 2rem; }
+  .stats-bar { grid-template-columns: 1fr 1fr; gap: 0.75rem; }
+}
+
+.groups-nav{background:linear-gradient(135deg,#0f2447 0%,#1a3a6b 100%);display:flex;justify-content:center;gap:.5rem;padding:.6rem 1rem;border-bottom:1px solid rgba(201,162,39,.2)}
+.group-nav-btn{display:flex;align-items:center;gap:.5rem;color:rgba(255,255,255,.7);text-decoration:none;font-family:'Tajawal',sans-serif;font-size:.9rem;font-weight:600;padding:.5rem 1.4rem;border-radius:50px;transition:all .3s ease;border:1px solid transparent}
+.group-nav-btn:hover{color:#e8c04a;background:rgba(201,162,39,.12);border-color:rgba(201,162,39,.3)}
+.group-nav-btn.active{background:linear-gradient(135deg,#c9a227 0%,#e8c04a 100%);color:#0f2447;border-color:transparent;box-shadow:0 4px 16px rgba(201,162,39,.35)}
+
 /* MAIN NAV */
 .main-nav { background: linear-gradient(135deg, #0a1c38 0%, #152d55 100%); display:flex; justify-content:center; align-items:center; gap:.3rem; padding:.5rem 1rem; border-bottom:1px solid rgba(201,162,39,.25); flex-wrap:wrap; }
 .nav-link { display:flex; align-items:center; gap:.45rem; color:rgba(255,255,255,.72); text-decoration:none; font-family:'Tajawal',sans-serif; font-size:.88rem; font-weight:600; padding:.45rem 1.1rem; border-radius:50px; transition:all .3s ease; border:1px solid transparent; }
-.nav-link:hover { color:var(--gold-light); background:rgba(201,162,39,.12); border-color:rgba(201,162,39,.3); }
-.nav-link.active { background:linear-gradient(135deg,var(--gold),var(--gold-light)); color:var(--navy); border-color:transparent; box-shadow:0 4px 14px rgba(201,162,39,.4); font-weight:700; }
+.nav-link:hover { color:#e8c04a; background:rgba(201,162,39,.12); border-color:rgba(201,162,39,.3); }
+.nav-link.active { background:linear-gradient(135deg,#c9a227,#e8c04a); color:#0f2447; border-color:transparent; box-shadow:0 4px 14px rgba(201,162,39,.4); font-weight:700; }
 .nav-divider { width:1px; height:20px; background:rgba(201,162,39,.2); margin:0 .2rem; }
-/* HERO */
-.hero { text-align:center; padding:3.5rem 1.5rem 2rem; position:relative; overflow:hidden; }
-.hero::before { content:""; position:absolute; inset:0; background:radial-gradient(ellipse at 50% 0%,rgba(201,162,39,.08),transparent 70%); pointer-events:none; }
-.hero-badge { display:inline-flex; align-items:center; gap:.5rem; background:var(--gold-pale); border:1.5px solid rgba(201,162,39,.35); color:var(--gold); font-size:.85rem; font-weight:700; padding:.45rem 1.2rem; border-radius:30px; margin-bottom:1.4rem; }
-.hero h1 { font-size:2.6rem; font-weight:900; color:var(--navy); line-height:1.25; margin-bottom:.9rem; }
-.hero h1 span { color:var(--gold); }
-.hero p { color:var(--text-muted); font-size:1rem; max-width:500px; margin:0 auto 2rem; line-height:1.75; }
-/* CONTAINER */
-.container { max-width:1160px; margin:0 auto; padding:0 1.5rem 4rem; flex:1; }
-.section-head { display:flex; align-items:center; gap:.7rem; margin-bottom:1.6rem; }
-.section-head h2 { font-size:1.4rem; font-weight:800; color:var(--navy); }
-.section-head i { color:var(--gold); font-size:1.2rem; }
-.section-line { flex:1; height:2px; background:linear-gradient(90deg,rgba(201,162,39,.3),transparent); border-radius:2px; }
-/* GROUPS GRID */
-.groups-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:1.4rem; margin-bottom:3rem; }
-@media(max-width:768px){ .groups-grid{grid-template-columns:1fr} .hero h1{font-size:1.8rem} }
-.group-card { background:var(--card-bg); border-radius:var(--radius); overflow:hidden; box-shadow:var(--shadow-sm); border:1px solid var(--border); transition:var(--transition); text-decoration:none; display:block; }
-.group-card:hover { transform:translateY(-6px); box-shadow:var(--shadow-lg); border-color:rgba(201,162,39,.4); }
-.group-card-header { padding:1.6rem 1.6rem 1.2rem; display:flex; align-items:center; gap:1rem; }
-.group-icon { width:58px; height:58px; border-radius:16px; display:flex; align-items:center; justify-content:center; font-size:1.6rem; flex-shrink:0; }
-.icon-blue { background:linear-gradient(135deg,#1e40af,#3b82f6); color:#fff; }
-.icon-teal { background:linear-gradient(135deg,#0f766e,#14b8a6); color:#fff; }
-.icon-green { background:linear-gradient(135deg,#15803d,#22c55e); color:#fff; }
-.group-card-title { font-size:1.2rem; font-weight:800; color:var(--navy); }
-.group-card-sub { font-size:.78rem; color:var(--text-muted); margin-top:.2rem; }
-.group-card-body { padding:0 1.6rem 1.6rem; }
-.group-stat { display:flex; justify-content:space-between; align-items:center; padding:.55rem 0; border-bottom:1px solid rgba(201,162,39,.08); font-size:.85rem; }
-.group-stat:last-of-type { border-bottom:none; }
-.group-stat .label { color:var(--text-muted); }
-.group-stat .val { font-weight:700; color:var(--navy); }
-.group-card-footer { padding:1rem 1.6rem; background:linear-gradient(135deg,var(--navy),var(--navy-mid)); display:flex; align-items:center; justify-content:center; gap:.5rem; color:var(--gold-light); font-weight:700; font-size:.88rem; }
-/* PODIUM / TOP SECTION */
-.top-section { margin-bottom:3rem; }
-.podium-tabs { display:flex; gap:.6rem; margin-bottom:1.8rem; flex-wrap:wrap; }
-.podium-tab { padding:.45rem 1.2rem; border-radius:30px; font-size:.85rem; font-weight:700; cursor:pointer; border:2px solid var(--border); transition:var(--transition); background:var(--card-bg); color:var(--text-muted); font-family:"Tajawal",sans-serif; }
-.podium-tab.active { background:var(--navy); color:var(--gold-light); border-color:var(--navy); }
-.podium-panels>div { display:none; }
-.podium-panels>div.active { display:block; }
-.podium-wrap { display:flex; align-items:flex-end; justify-content:center; gap:1.2rem; margin-bottom:2rem; }
-.podium-card { flex:1; max-width:200px; background:var(--card-bg); border-radius:var(--radius); padding:1.5rem 1rem; text-align:center; border:1px solid var(--border); box-shadow:var(--shadow-sm); transition:var(--transition); }
-.podium-card:hover { transform:translateY(-4px); box-shadow:var(--shadow-md); }
-.podium-card.first { border-top:4px solid #f59e0b; background:linear-gradient(160deg,#fffbeb,#fff); box-shadow:0 8px 30px rgba(245,158,11,.18); padding-top:2rem; }
-.podium-card.second { border-top:4px solid #94a3b8; }
-.podium-card.third { border-top:4px solid #cd7f32; }
-.podium-medal { font-size:2.6rem; margin-bottom:.5rem; }
-.podium-name { font-size:.88rem; font-weight:700; color:var(--navy); margin-bottom:.5rem; line-height:1.4; }
-.podium-pts { font-size:1.5rem; font-weight:900; color:var(--gold); }
-.podium-pts span { font-size:.72rem; color:var(--text-muted); font-weight:400; }
-.top-list { background:var(--card-bg); border-radius:var(--radius); overflow:hidden; box-shadow:var(--shadow-sm); border:1px solid var(--border); }
-.top-list-header { display:grid; grid-template-columns:60px 1fr 120px; padding:.9rem 1.4rem; background:linear-gradient(135deg,var(--navy),var(--navy-mid)); color:var(--gold-light); font-size:.82rem; font-weight:700; }
-.top-list-row { display:grid; grid-template-columns:60px 1fr 120px; padding:.85rem 1.4rem; align-items:center; border-bottom:1px solid rgba(201,162,39,.07); transition:var(--transition); }
-.top-list-row:last-child { border-bottom:none; }
-.top-list-row:hover { background:rgba(201,162,39,.05); }
-.top-list-row.r1 { background:linear-gradient(90deg,rgba(245,158,11,.07),transparent); }
-.top-list-row.r2 { background:linear-gradient(90deg,rgba(148,163,184,.06),transparent); }
-.top-list-row.r3 { background:linear-gradient(90deg,rgba(205,127,50,.06),transparent); }
-.rank-badge { width:34px; height:34px; border-radius:50%; display:flex; align-items:center; justify-content:center; font-weight:800; font-size:.85rem; }
-.rb1 { background:#fef3c7; color:#b45309; }
-.rb2 { background:#f1f5f9; color:#475569; }
-.rb3 { background:#fde8d8; color:#92400e; }
-.rb-n { background:rgba(15,36,71,.07); color:var(--navy); }
-.student-name { font-size:.9rem; font-weight:600; color:var(--navy); }
-.pts-pill { display:inline-flex; align-items:center; gap:.35rem; background:var(--gold-pale); color:var(--gold); font-weight:700; font-size:.82rem; padding:.3rem .75rem; border-radius:20px; }
-footer { text-align:center; padding:1.5rem; color:var(--text-muted); font-size:.8rem; border-top:1px solid rgba(201,162,39,.15); background:rgba(255,255,255,.6); margin-top:2rem; }
 </style>
 </head>
 <body>
+
 <header>
   <div class="logo-area">
     <div class="logo-icon"><i class="fas fa-university"></i></div>
@@ -112,134 +303,175 @@ footer { text-align:center; padding:1.5rem; color:var(--text-muted); font-size:.
       <div class="sub">المنصة الرقمية التعليمية</div>
     </div>
   </div>
-  <div class="header-badge"><div class="pulse-dot"></div> مباشر</div>
+  <div class="group-badge">
+    <i class="fas fa-users"></i>
+    مجموعة الأخاء
+  </div>
 </header>
 <nav class="main-nav">
-  <a href="index.html" class="nav-link active"><i class="fas fa-home"></i><span>الرئيسية</span></a>
+  <a href="index.html" class="nav-link"><i class="fas fa-home"></i><span>الرئيسية</span></a>
   <a href="borsa.html" class="nav-link"><i class="fas fa-chart-line"></i><span>البورصة</span></a>
   <a href="about.html" class="nav-link"><i class="fas fa-info-circle"></i><span>عن البنك</span></a>
   <div class="nav-divider"></div>
   <a href="nashat.html" class="nav-link"><i class="fas fa-bolt"></i><span>النشاط</span></a>
   <a href="jawaze.html" class="nav-link"><i class="fas fa-trophy"></i><span>الجوائز</span></a>
   <div class="nav-divider"></div>
-  <a href="akhaa.html" class="nav-link"><i class="fas fa-users"></i><span>الأخاء</span></a>
+  <a href="akhaa.html" class="nav-link active"><i class="fas fa-users"></i><span>الأخاء</span></a>
   <a href="ataa.html" class="nav-link"><i class="fas fa-hand-holding-heart"></i><span>العطاء</span></a>
   <a href="namaa.html" class="nav-link"><i class="fas fa-seedling"></i><span>النماء</span></a>
 </nav>
-<div class="hero">
-  <div class="hero-badge"><i class="fas fa-star"></i> الفصل الدراسي الثاني</div>
-  <h1>لوحة تمكين <span>المركزية</span></h1>
-  <p>منصة متكاملة لمتابعة إنجازات طلاب مجموعات الأخاء والعطاء والنماء</p>
-</div>
-<div class="container">
-  <div class="section-head">
-    <i class="fas fa-users-cog"></i>
-    <h2>المجموعات الدراسية</h2>
+
+<main>
+
+  <div class="stats-bar">
+    <div class="stat-card">
+      <div class="stat-icon blue"><i class="fas fa-users"></i></div>
+      <div class="stat-info">
+        <div class="label">عدد الطلاب</div>
+        <div class="value" id="stat-count">0 <span>طالب</span></div>
+      </div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-icon gold"><i class="fas fa-coins"></i></div>
+      <div class="stat-info">
+        <div class="label">أعلى رصيد</div>
+        <div class="value" id="stat-max">0 <span>نقطة</span></div>
+      </div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-icon green"><i class="fas fa-chart-line"></i></div>
+      <div class="stat-info">
+        <div class="label">متوسط المجموعة</div>
+        <div class="value" id="stat-avg">0 <span>نقطة</span></div>
+      </div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-icon purple"><i class="fas fa-award"></i></div>
+      <div class="stat-info">
+        <div class="label">إجمالي النقاط</div>
+        <div class="value" id="stat-total">0 <span>نقطة</span></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section-header">
+    <i class="fas fa-trophy" style="color:var(--gold); font-size:1.1rem;"></i>
+    <span class="section-title">ترتيب الطلاب - مجموعة الأخاء</span>
     <div class="section-line"></div>
+    <span style="font-size:0.8rem; color:var(--text-muted); white-space:nowrap;">الحلقة الابتدائية</span>
   </div>
-  <div class="groups-grid">
-    <a href="akhaa.html" class="group-card">
-      <div class="group-card-header">
-        <div class="group-icon icon-blue"><i class="fas fa-users"></i></div>
-        <div><div class="group-card-title">مجموعة الأخاء</div><div class="group-card-sub">الحلقة الابتدائية</div></div>
-      </div>
-      <div class="group-card-body">
-        <div class="group-stat"><span class="label"><i class="fas fa-user-graduate"></i> عدد الطلاب</span><span class="val">23 طالب</span></div>
-        <div class="group-stat"><span class="label"><i class="fas fa-crown"></i> أعلى رصيد</span><span class="val">4,800 نقطة</span></div>
-        <div class="group-stat"><span class="label"><i class="fas fa-chart-bar"></i> متوسط المجموعة</span><span class="val">2,753 نقطة</span></div>
-      </div>
-      <div class="group-card-footer"><i class="fas fa-arrow-left"></i> عرض تفاصيل المجموعة</div>
-    </a>
-    <a href="ataa.html" class="group-card">
-      <div class="group-card-header">
-        <div class="group-icon icon-teal"><i class="fas fa-hand-holding-heart"></i></div>
-        <div><div class="group-card-title">مجموعة العطاء</div><div class="group-card-sub">الحلقة الابتدائية</div></div>
-      </div>
-      <div class="group-card-body">
-        <div class="group-stat"><span class="label"><i class="fas fa-user-graduate"></i> عدد الطلاب</span><span class="val">24 طالب</span></div>
-        <div class="group-stat"><span class="label"><i class="fas fa-crown"></i> أعلى رصيد</span><span class="val">2,400 نقطة</span></div>
-        <div class="group-stat"><span class="label"><i class="fas fa-chart-bar"></i> متوسط المجموعة</span><span class="val">1,248 نقطة</span></div>
-      </div>
-      <div class="group-card-footer"><i class="fas fa-arrow-left"></i> عرض تفاصيل المجموعة</div>
-    </a>
-    <a href="namaa.html" class="group-card">
-      <div class="group-card-header">
-        <div class="group-icon icon-green"><i class="fas fa-seedling"></i></div>
-        <div><div class="group-card-title">مجموعة النماء</div><div class="group-card-sub">الحلقة الابتدائية</div></div>
-      </div>
-      <div class="group-card-body">
-        <div class="group-stat"><span class="label"><i class="fas fa-user-graduate"></i> عدد الطلاب</span><span class="val">19 طالب</span></div>
-        <div class="group-stat"><span class="label"><i class="fas fa-crown"></i> أعلى رصيد</span><span class="val">3,100 نقطة</span></div>
-        <div class="group-stat"><span class="label"><i class="fas fa-chart-bar"></i> متوسط المجموعة</span><span class="val">1,680 نقطة</span></div>
-      </div>
-      <div class="group-card-footer"><i class="fas fa-arrow-left"></i> عرض تفاصيل المجموعة</div>
-    </a>
+
+  <div class="leaderboard-container">
+    <div class="leaderboard-header">
+      <span>الترتيب</span>
+      <span>الطالب</span>
+      <span>التقدم</span>
+      <span>الرصيد</span>
+    </div>
+    <div id="students-list"></div>
   </div>
-  <div class="top-section">
-    <div class="section-head">
-      <i class="fas fa-medal"></i>
-      <h2>ترتيب الأوائل</h2>
-      <div class="section-line"></div>
-    </div>
-    <div class="podium-tabs">
-      <button class="podium-tab active" onclick="switchTab(this,'all')">الكل</button>
-      <button class="podium-tab" onclick="switchTab(this,'akhaa')">الأخاء</button>
-      <button class="podium-tab" onclick="switchTab(this,'ataa')">العطاء</button>
-      <button class="podium-tab" onclick="switchTab(this,'namaa')">النماء</button>
-    </div>
-    <div class="podium-panels">
-      <div id="panel-all" class="active">
-        <div class="podium-wrap">
-          <div class="podium-card second"><div class="podium-medal">🥈</div><div class="podium-name">محمد العمري</div><div class="podium-pts">4,200 <span>نقطة</span></div></div>
-          <div class="podium-card first"><div class="podium-medal">🥇</div><div class="podium-name">عبدالله السالم</div><div class="podium-pts">4,800 <span>نقطة</span></div></div>
-          <div class="podium-card third"><div class="podium-medal">🥉</div><div class="podium-name">سعود الراشد</div><div class="podium-pts">3,950 <span>نقطة</span></div></div>
-        </div>
-        <div class="top-list">
-          <div class="top-list-header"><span>الترتيب</span><span>الطالب</span><span>النقاط</span></div>
-          <div class="top-list-row r1"><div class="rank-badge rb1">1</div><div class="student-name">عبدالله السالم</div><div class="pts-pill"><i class="fas fa-star"></i>4,800</div></div>
-          <div class="top-list-row r2"><div class="rank-badge rb2">2</div><div class="student-name">محمد العمري</div><div class="pts-pill"><i class="fas fa-star"></i>4,200</div></div>
-          <div class="top-list-row r3"><div class="rank-badge rb3">3</div><div class="student-name">سعود الراشد</div><div class="pts-pill"><i class="fas fa-star"></i>3,950</div></div>
-          <div class="top-list-row"><div class="rank-badge rb-n">4</div><div class="student-name">فهد المطيري</div><div class="pts-pill"><i class="fas fa-star"></i>3,600</div></div>
-          <div class="top-list-row"><div class="rank-badge rb-n">5</div><div class="student-name">تركي الشمري</div><div class="pts-pill"><i class="fas fa-star"></i>3,400</div></div>
-        </div>
-      </div>
-      <div id="panel-akhaa">
-        <div class="top-list">
-          <div class="top-list-header"><span>الترتيب</span><span>الطالب</span><span>النقاط</span></div>
-          <div class="top-list-row r1"><div class="rank-badge rb1">1</div><div class="student-name">عبدالله السالم</div><div class="pts-pill"><i class="fas fa-star"></i>4,800</div></div>
-          <div class="top-list-row r2"><div class="rank-badge rb2">2</div><div class="student-name">محمد العمري</div><div class="pts-pill"><i class="fas fa-star"></i>4,200</div></div>
-          <div class="top-list-row r3"><div class="rank-badge rb3">3</div><div class="student-name">سعود الراشد</div><div class="pts-pill"><i class="fas fa-star"></i>3,950</div></div>
-        </div>
-      </div>
-      <div id="panel-ataa">
-        <div class="top-list">
-          <div class="top-list-header"><span>الترتيب</span><span>الطالب</span><span>النقاط</span></div>
-          <div class="top-list-row r1"><div class="rank-badge rb1">1</div><div class="student-name">خالد النعيمي</div><div class="pts-pill"><i class="fas fa-star"></i>2,400</div></div>
-          <div class="top-list-row r2"><div class="rank-badge rb2">2</div><div class="student-name">سلطان الحربي</div><div class="pts-pill"><i class="fas fa-star"></i>2,100</div></div>
-          <div class="top-list-row r3"><div class="rank-badge rb3">3</div><div class="student-name">نايف الزهراني</div><div class="pts-pill"><i class="fas fa-star"></i>1,850</div></div>
-        </div>
-      </div>
-      <div id="panel-namaa">
-        <div class="top-list">
-          <div class="top-list-header"><span>الترتيب</span><span>الطالب</span><span>النقاط</span></div>
-          <div class="top-list-row r1"><div class="rank-badge rb1">1</div><div class="student-name">وليد الشهري</div><div class="pts-pill"><i class="fas fa-star"></i>3,100</div></div>
-          <div class="top-list-row r2"><div class="rank-badge rb2">2</div><div class="student-name">ياسر الغامدي</div><div class="pts-pill"><i class="fas fa-star"></i>2,800</div></div>
-          <div class="top-list-row r3"><div class="rank-badge rb3">3</div><div class="student-name">حسن المالكي</div><div class="pts-pill"><i class="fas fa-star"></i>2,500</div></div>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
+
+</main>
+
 <footer>
-  <strong>بنك تمكين المركزي</strong> &mdash; المنصة الرقمية التعليمية &mdash; جميع الحقوق محفوظة
+  <strong>بنك تمكين المركزي</strong> &mdash; مجموعة الأخاء &mdash; الحلقة الابتدائية &mdash; جميع الحقوق محفوظة
 </footer>
+
 <script>
-function switchTab(btn, panel) {
-  document.querySelectorAll('.podium-tab').forEach(b => b.classList.remove('active'));
-  document.querySelectorAll('.podium-panels > div').forEach(p => p.classList.remove('active'));
-  btn.classList.add('active');
-  document.getElementById('panel-' + panel).classList.add('active');
+// مصفوفة بيانات الطلاب
+const students = [
+  { name: "محمد فيصل الشهراني", score: 4800 },
+  { name: "عبدالكريم سليمان الدويش", score: 4500 },
+  { name: "عبدالملك هشام السعيد", score: 4375 },
+  { name: "يزيد وليد الحمدان", score: 4100 },
+  { name: "عبدالله فيصل السويدي", score: 4050 },
+  { name: "تميم بدر الجبر", score: 3925 },
+  { name: "عبدالرحمن علي العريني", score: 3900 },
+  { name: "عبدالله وائل العريني", score: 3850 },
+  { name: "البراء عبدالله العيدان", score: 3725 },
+  { name: "عبدالله فهد الماجد", score: 3630 },
+  { name: "زياد مازن الجريد", score: 3575 },
+  { name: "هشام محمد العريني", score: 3400 },
+  { name: "سعد خالد الاحمد", score: 3375 },
+  { name: "عمر عبدالمحسن المهيزع", score: 3300 },
+  { name: "يوسف عبدالمجيد الجارالله", score: 2600 },
+  { name: "عبدالرحمن هشام السعيد", score: 1850 },
+  { name: "أنس ياسر الصقير", score: 1500 },
+  { name: "سعود متعب الزميع", score: 1300 },
+  { name: "سلمان عمر الوهيبي", score: 1275 },
+  { name: "يوسف عبدالله بالبيد", score: 1025 },
+  { name: "رواف علي السحيباني", score: 850 },
+  { name: "عبدالرحمن صلاح العيبان", score: 800 },
+  { name: "أحمد المطرودي", score: 200 }
+];
+
+const maxScore = 5000;
+
+// احتساب الإحصائيات ديناميكياً من المجموعة
+const studentCount = students.length;
+const totalPoints = students.reduce((sum, s) => sum + s.score, 0);
+const maxPoints = studentCount > 0 ? Math.max(...students.map(s => s.score)) : 0;
+const avgPoints = studentCount > 0 ? Math.round(totalPoints / studentCount) : 0;
+
+// حقن الأرقام الإحصائية المحدثة في بطاقات الـ HTML بتنسيق عربي محلي
+document.getElementById('stat-count').innerHTML = `${studentCount.toLocaleString('ar-SA')} <span>طالب</span>`;
+document.getElementById('stat-max').innerHTML = `${maxPoints.toLocaleString('ar-SA')} <span>نقطة</span>`;
+document.getElementById('stat-avg').innerHTML = `${avgPoints.toLocaleString('ar-SA')} <span>نقطة</span>`;
+document.getElementById('stat-total').innerHTML = `${totalPoints.toLocaleString('ar-SA')} <span>نقطة</span>`;
+
+function getScoreClass(score) {
+  if (score >= 3000) return 'excellent';
+  if (score >= 1500) return 'good';
+  return 'fair';
 }
+function getScoreLabel(score) {
+  if (score >= 3000) return 'ممتاز';
+  if (score >= 1500) return 'جيد';
+  return 'يحتاج تحسين';
+}
+function getProgressColor(score) {
+  if (score >= 3000) return 'linear-gradient(90deg, #22c55e, #4ade80)';
+  if (score >= 1500) return 'linear-gradient(90deg, #f59e0b, #fbbf24)';
+  return 'linear-gradient(90deg, #ef4444, #f87171)';
+}
+function getInitials(name) {
+  const parts = name.trim().split(' ');
+  return parts.length >= 2 ? parts[0][0] + parts[1][0] : parts[0][0];
+}
+
+const container = document.getElementById('students-list');
+students.forEach((student, index) => {
+  const rank = index + 1;
+  const pct = Math.round((student.score / maxScore) * 100);
+  const rowClass = rank <= 3 ? `student-row rank-${rank}` : 'student-row';
+  const badgeClass = rank <= 3 ? 'rank-badge' : 'rank-badge normal';
+  const medal = rank === 1 ? '<i class="fas fa-crown" style="color:#fbbf24; font-size:1rem;"></i>' : rank === 2 ? '<i class="fas fa-medal" style="color:#94a3b8; font-size:1rem;"></i>' : rank === 3 ? '<i class="fas fa-medal" style="color:#b45309; font-size:1rem;"></i>' : rank;
+  const scoreClass = getScoreClass(student.score);
+  const scoreLabel = getScoreLabel(student.score);
+  const progressColor = getProgressColor(student.score);
+  const initials = getInitials(student.name);
+  container.innerHTML += `
+    <div class="${rowClass}">
+      <div class="${badgeClass}">${medal}</div>
+      <div class="student-name-area">
+        <div class="student-avatar">${initials}</div>
+        <div>
+          <div class="student-name">${student.name}</div>
+          <span class="score-pill ${scoreClass}">${scoreLabel}</span>
+        </div>
+      </div>
+      <div class="progress-area">
+        <div class="progress-bar">
+          <div class="progress-fill" style="width:${pct}%; background:${progressColor};"></div>
+        </div>
+        <span class="progress-text">${pct}%</span>
+      </div>
+      <div class="score-area">
+        <span class="score-value">${student.score.toLocaleString('ar-SA')}</span>
+        <span class="score-label">نقطة</span>
+      </div>
+    </div>`;
+});
 </script>
 </body>
 </html>
