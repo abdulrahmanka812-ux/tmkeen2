@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>بنك تمكين | البورصة</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;800;900&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+:root {
+  --navy: #0f2447; --navy-mid: #1a3a6b; --navy-light: #1e4d8c;
+  --gold: #c9a227; --gold-light: #e8c04a; --gold-pale: #fdf3d7;
+  --white: #fff; --bg: #f0f4fb; --card-bg: rgba(255,255,255,0.96);
+  --text-main: #0f2447; --text-muted: #64748b; --border: rgba(201,162,39,0.18);
+  --shadow-sm: 0 2px 12px rgba(15,36,71,0.08); --shadow-md: 0 8px 30px rgba(15,36,71,0.15);
+  --shadow-lg: 0 20px 60px rgba(15,36,71,0.22); --radius: 20px;
+  --green: #22c55e; --red: #ef4444;
+}
+html { scroll-behavior: smooth; }
+body { font-family: "Tajawal", sans-serif; background: linear-gradient(160deg,#e4ecf7,#f0f4fb 50%,#e8eef8); color: var(--navy); min-height: 100vh; direction: rtl; display: flex; flex-direction: column; }
+header { background: linear-gradient(135deg,var(--navy),var(--navy-mid) 60%,var(--navy-light)); padding: 0 2rem; height: 74px; display: flex; align-items: center; justify-content: space-between; position: sticky; top: 0; z-index: 100; box-shadow: 0 4px 24px rgba(15,36,71,.4); border-bottom: 3px solid var(--gold); flex-shrink: 0; }
+header::before { content:""; position:absolute; inset:0; background:url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none'%3E%3Cg fill='%23c9a227' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E"); pointer-events:none; }
+.logo-area { display:flex; align-items:center; gap:.9rem; z-index:1; }
+.logo-icon { width:48px; height:48px; background:linear-gradient(135deg,var(--gold),var(--gold-light)); border-radius:14px; display:flex; align-items:center; justify-content:center; font-size:1.5rem; color:var(--navy); box-shadow:0 4px 16px rgba(201,162,39,.45); }
+.logo-text .brand { color:var(--gold-light); font-size:1.15rem; font-weight:800; }
+.logo-text .sub { color:rgba(255,255,255,.6); font-size:.68rem; }
+.header-badge { z-index:1; background:rgba(201,162,39,.15); border:1px solid rgba(201,162,39,.35); border-radius:30px; padding:.35rem .9rem; color:var(--gold-light); font-size:.78rem; display:flex; align-items:center; gap:.5rem; }
+.pulse-dot { width:8px; height:8px; background:#4ade80; border-radius:50%; animation:pulse 2s infinite; }
+@keyframes pulse { 0%,100%{box-shadow:0 0 0 0 rgba(74,222,128,.6)} 50%{box-shadow:0 0 0 6px rgba(74,222,128,0)} }
+/* MAIN NAV */
+.main-nav { background: linear-gradient(135deg, #0a1c38 0%, #152d55 100%); display:flex; justify-content:center; align-items:center; gap:.3rem; padding:.5rem 1rem; border-bottom:1px solid rgba(201,162,39,.25); flex-wrap:wrap; }
+.nav-link { display:flex; align-items:center; gap:.45rem; color:rgba(255,255,255,.72); text-decoration:none; font-family:'Tajawal',sans-serif; font-size:.88rem; font-weight:600; padding:.45rem 1.1rem; border-radius:50px; transition:all .3s ease; border:1px solid transparent; }
+.nav-link:hover { color:#e8c04a; background:rgba(201,162,39,.12); border-color:rgba(201,162,39,.3); }
+.nav-link.active { background:linear-gradient(135deg,#c9a227,#e8c04a); color:#0f2447; border-color:transparent; box-shadow:0 4px 14px rgba(201,162,39,.4); font-weight:700; }
+.nav-divider { width:1px; height:20px; background:rgba(201,162,39,.2); margin:0 .2rem; }
+/* PAGE */
+.page-header { text-align:center; padding:2.5rem 1.5rem 1.5rem; }
+.page-badge { display:inline-flex; align-items:center; gap:.5rem; background:var(--gold-pale); border:1.5px solid rgba(201,162,39,.35); color:var(--gold); font-size:.85rem; font-weight:700; padding:.45rem 1.2rem; border-radius:30px; margin-bottom:1rem; }
+.page-header h1 { font-size:2rem; font-weight:900; color:var(--navy); margin-bottom:.6rem; }
+.page-header h1 span { color:var(--gold); }
+.container { max-width:1160px; margin:0 auto; padding:0 1.5rem 4rem; flex:1; }
+.section-head { display:flex; align-items:center; gap:.7rem; margin-bottom:1.4rem; }
+.section-head h2 { font-size:1.3rem; font-weight:800; color:var(--navy); }
+.section-head i { color:var(--gold); font-size:1.1rem; }
+.section-line { flex:1; height:2px; background:linear-gradient(90deg,rgba(201,162,39,.3),transparent); border-radius:2px; }
+/* STATS */
+.stats-row { display:grid; grid-template-columns:repeat(auto-fit,minmax(200px,1fr)); gap:1.2rem; margin-bottom:2.5rem; }
+.stat-card { background:var(--card-bg); border-radius:var(--radius); padding:1.4rem 1.6rem; display:flex; align-items:center; gap:1rem; box-shadow:var(--shadow-sm); border:1px solid var(--border); }
+.stat-icon { width:52px; height:52px; border-radius:14px; display:flex; align-items:center; justify-content:center; font-size:1.4rem; flex-shrink:0; }
+.si-gold { background:linear-gradient(135deg,var(--gold),var(--gold-light)); color:var(--navy); }
+.si-green { background:linear-gradient(135deg,#15803d,#22c55e); color:#fff; }
+.si-blue { background:linear-gradient(135deg,#1e40af,#3b82f6); color:#fff; }
+.si-red { background:linear-gradient(135deg,#991b1b,#ef4444); color:#fff; }
+.stat-info .label { font-size:.8rem; color:var(--text-muted); }
+.stat-info .value { font-size:1.6rem; font-weight:900; color:var(--navy); }
+/* MARKET TABLE */
+.market-table { background:var(--card-bg); border-radius:var(--radius); overflow:hidden; box-shadow:var(--shadow-sm); border:1px solid var(--border); margin-bottom:2.5rem; }
+.market-header { display:grid; grid-template-columns:1fr 120px 120px 100px; padding:.9rem 1.4rem; background:linear-gradient(135deg,var(--navy),var(--navy-mid)); color:var(--gold-light); font-size:.82rem; font-weight:700; gap:1rem; }
+.market-row { display:grid; grid-template-columns:1fr 120px 120px 100px; padding:.9rem 1.4rem; align-items:center; border-bottom:1px solid rgba(201,162,39,.07); gap:1rem; transition:all .3s; }
+.market-row:last-child { border-bottom:none; }
+.market-row:hover { background:rgba(201,162,39,.04); }
+.item-name { font-weight:700; color:var(--navy); font-size:.9rem; }
+.item-sub { font-size:.75rem; color:var(--text-muted); }
+.price { font-weight:700; color:var(--navy); }
+.change-up { color:var(--green); font-weight:700; font-size:.85rem; }
+.change-down { color:var(--red); font-weight:700; font-size:.85rem; }
+.badge-avail { background:rgba(34,197,94,.12); color:#15803d; padding:.25rem .7rem; border-radius:20px; font-size:.78rem; font-weight:700; }
+.badge-sold { background:rgba(239,68,68,.1); color:var(--red); padding:.25rem .7rem; border-radius:20px; font-size:.78rem; font-weight:700; }
+footer { text-align:center; padding:1.5rem; color:var(--text-muted); font-size:.8rem; border-top:1px solid rgba(201,162,39,.15); background:rgba(255,255,255,.6); }
+@media(max-width:768px){ .market-header,.market-row{grid-template-columns:1fr 90px 70px} .market-header span:last-child,.market-row>*:last-child{display:none} }
+</style>
+</head>
+<body>
+<header>
+  <div class="logo-area">
+    <div class="logo-icon"><i class="fas fa-university"></i></div>
+    <div class="logo-text">
+      <div class="brand">بنك تمكين المركزي</div>
+      <div class="sub">المنصة الرقمية التعليمية</div>
+    </div>
+  </div>
+  <div class="header-badge"><div class="pulse-dot"></div> مباشر</div>
+</header>
+<nav class="main-nav">
+  <a href="index.html" class="nav-link"><i class="fas fa-home"></i><span>الرئيسية</span></a>
+  <a href="borsa.html" class="nav-link active"><i class="fas fa-chart-line"></i><span>البورصة</span></a>
+  <a href="about.html" class="nav-link"><i class="fas fa-info-circle"></i><span>عن البنك</span></a>
+  <div class="nav-divider"></div>
+  <a href="nashat.html" class="nav-link"><i class="fas fa-bolt"></i><span>النشاط</span></a>
+  <a href="jawaze.html" class="nav-link"><i class="fas fa-trophy"></i><span>الجوائز</span></a>
+  <div class="nav-divider"></div>
+  <a href="akhaa.html" class="nav-link"><i class="fas fa-users"></i><span>الأخاء</span></a>
+  <a href="ataa.html" class="nav-link"><i class="fas fa-hand-holding-heart"></i><span>العطاء</span></a>
+  <a href="namaa.html" class="nav-link"><i class="fas fa-seedling"></i><span>النماء</span></a>
+</nav>
+<div class="page-header">
+  <div class="page-badge"><i class="fas fa-chart-line"></i> بورصة تمكين</div>
+  <h1>بورصة <span>تمكين</span></h1>
+  <p style="color:var(--text-muted);font-size:.95rem;max-width:480px;margin:0 auto;line-height:1.75">سوق تداول نقاط الطلاب - اشترِ وبِع الخدمات والمنتجات بنقاط تمكين</p>
+</div>
+<div class="container">
+  <div class="stats-row">
+    <div class="stat-card">
+      <div class="stat-icon si-gold"><i class="fas fa-coins"></i></div>
+      <div class="stat-info"><div class="label">إجمالي التداول اليوم</div><div class="value">12,450</div></div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-icon si-green"><i class="fas fa-arrow-up"></i></div>
+      <div class="stat-info"><div class="label">أكثر المنتجات طلباً</div><div class="value">وقت حر</div></div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-icon si-blue"><i class="fas fa-box-open"></i></div>
+      <div class="stat-info"><div class="label">المنتجات المتاحة</div><div class="value">8</div></div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-icon si-red"><i class="fas fa-fire"></i></div>
+      <div class="stat-info"><div class="label">المنتجات المنتهية</div><div class="value">3</div></div>
+    </div>
+  </div>
+  <div class="section-head">
+    <i class="fas fa-store"></i>
+    <h2>منتجات البورصة</h2>
+    <div class="section-line"></div>
+  </div>
+  <div class="market-table">
+    <div class="market-header">
+      <span>المنتج</span>
+      <span>السعر</span>
+      <span>التغيير</span>
+      <span>الحالة</span>
+    </div>
+    <div class="market-row">
+      <div><div class="item-name"><i class="fas fa-clock" style="color:var(--gold);margin-left:.4rem"></i>وقت حر إضافي</div><div class="item-sub">10 دقائق إضافية</div></div>
+      <div class="price">500 <span style="font-size:.75rem;color:var(--text-muted)">نقطة</span></div>
+      <div class="change-up"><i class="fas fa-arrow-up"></i> +50</div>
+      <div><span class="badge-avail">متاح</span></div>
+    </div>
+    <div class="market-row">
+      <div><div class="item-name"><i class="fas fa-star" style="color:var(--gold);margin-left:.4rem"></i>إعفاء واجب</div><div class="item-sub">إعفاء من واجب واحد</div></div>
+      <div class="price">800 <span style="font-size:.75rem;color:var(--text-muted)">نقطة</span></div>
+      <div class="change-up"><i class="fas fa-arrow-up"></i> +120</div>
+      <div><span class="badge-avail">متاح</span></div>
+    </div>
+    <div class="market-row">
+      <div><div class="item-name"><i class="fas fa-gamepad" style="color:var(--gold);margin-left:.4rem"></i>جلسة ألعاب</div><div class="item-sub">30 دقيقة ألعاب تعليمية</div></div>
+      <div class="price">650 <span style="font-size:.75rem;color:var(--text-muted)">نقطة</span></div>
+      <div class="change-down"><i class="fas fa-arrow-down"></i> -30</div>
+      <div><span class="badge-avail">متاح</span></div>
+    </div>
+    <div class="market-row">
+      <div><div class="item-name"><i class="fas fa-candy-cane" style="color:var(--gold);margin-left:.4rem"></i>حلوى خاصة</div><div class="item-sub">حلوى مميزة من المعلم</div></div>
+      <div class="price">300 <span style="font-size:.75rem;color:var(--text-muted)">نقطة</span></div>
+      <div class="change-up"><i class="fas fa-arrow-up"></i> +10</div>
+      <div><span class="badge-avail">متاح</span></div>
+    </div>
+    <div class="market-row">
+      <div><div class="item-name"><i class="fas fa-book" style="color:var(--gold);margin-left:.4rem"></i>قصة مميزة</div><div class="item-sub">قصة تعليمية مصورة</div></div>
+      <div class="price">400 <span style="font-size:.75rem;color:var(--text-muted)">نقطة</span></div>
+      <div class="change-up"><i class="fas fa-arrow-up"></i> +25</div>
+      <div><span class="badge-avail">متاح</span></div>
+    </div>
+    <div class="market-row">
+      <div><div class="item-name"><i class="fas fa-crown" style="color:var(--gold);margin-left:.4rem"></i>لقب الأسبوع</div><div class="item-sub">لقب طالب الأسبوع</div></div>
+      <div class="price">1,200 <span style="font-size:.75rem;color:var(--text-muted)">نقطة</span></div>
+      <div class="change-down"><i class="fas fa-arrow-down"></i> -100</div>
+      <div><span class="badge-sold">نفذ</span></div>
+    </div>
+    <div class="market-row">
+      <div><div class="item-name"><i class="fas fa-pencil-alt" style="color:var(--gold);margin-left:.4rem"></i>أدوات مدرسية</div><div class="item-sub">طقم أقلام وأدوات</div></div>
+      <div class="price">700 <span style="font-size:.75rem;color:var(--text-muted)">نقطة</span></div>
+      <div class="change-up"><i class="fas fa-arrow-up"></i> +80</div>
+      <div><span class="badge-avail">متاح</span></div>
+    </div>
+    <div class="market-row">
+      <div><div class="item-name"><i class="fas fa-medal" style="color:var(--gold);margin-left:.4rem"></i>ميدالية تقدير</div><div class="item-sub">ميدالية تكريم خاصة</div></div>
+      <div class="price">1,500 <span style="font-size:.75rem;color:var(--text-muted)">نقطة</span></div>
+      <div class="change-down"><i class="fas fa-arrow-down"></i> -200</div>
+      <div><span class="badge-sold">نفذ</span></div>
+    </div>
+  </div>
+</div>
+<footer>
+  <strong>بنك تمكين المركزي</strong> &mdash; البورصة &mdash; جميع الحقوق محفوظة
+</footer>
+</body>
+</html>
